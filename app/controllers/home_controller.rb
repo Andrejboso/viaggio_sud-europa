@@ -6,4 +6,10 @@ class HomeController < ApplicationController
 
   def francia
   end
+
+  def about
+  end
+
+  def contact
+  end
 end

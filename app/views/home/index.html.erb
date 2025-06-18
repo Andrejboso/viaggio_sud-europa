@@ -1,4 +1,127 @@
-<h1>Benvenuto nella pagina home</h1>
+<style>
+  /* app/assets/stylesheets/application.css o un file specifico come _navbar.scss */
 
-<%= link_to "spagnia", spagnia_path %>
-<br><%= link_to "francia", francia_path %>
+.navbar {
+  background-color: #1e3799; /* Colore di sfondo della navbar */
+  color: white;
+  padding: 10px 20px;
+  display: flex; /* Utilizza Flexbox per l'allineamento */
+  justify-content: space-between; /* Spazia gli elementi brand e menu */
+  align-items: center;
+}
+
+.navbar-brand a {
+  color: white;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.navbar-nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex; /* Flexbox per i link orizzontali */
+}
+
+.navbar-nav li {
+  margin-left: 20px;
+}
+
+.navbar-nav a {
+  color: white;
+  text-decoration: none;
+  padding: 5px 0;
+  transition: color 0.3s ease;
+}
+
+.navbar-nav a:hover {
+  color: #ddd;
+}
+
+/* Nascondi il toggler di default su desktop */
+.navbar-toggler {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.navbar-toggler .icon-bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 5px 0;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Nascondi il menu di default su schermi piccoli */
+.navbar-collapse {
+  flex-grow: 1; /* Permette al menu di espandersi */
+  text-align: right; /* Allinea i link a destra su desktop */
+}
+
+/* Media Query per schermi piccoli (es. max-width: 768px per tablet e mobile) */
+@media (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap; /* Permette agli elementi di andare a capo */
+  }
+
+  .navbar-brand {
+    flex-grow: 1; /* Il brand prende lo spazio disponibile */
+  }
+
+  /* Mostra il toggler su schermi piccoli */
+  .navbar-toggler {
+    display: block;
+  }
+
+  /* Nascondi il menu e rendilo verticale su schermi piccoli */
+  .navbar-collapse {
+    width: 100%; /* Occupa tutta la larghezza */
+    max-height: 0; /* Nascondi per default */
+    overflow: hidden; /* Nascondi il contenuto in eccesso */
+    transition: max-height 0.3s ease-out; /* Animazione per l'apertura/chiusura */
+  }
+
+  .navbar-collapse.show { /* Classe aggiunta con JavaScript */
+    max-height: 200px; /* Altezza sufficiente per mostrare il menu */
+    /* Potresti calcolare l'altezza dinamicamente con JS per menu più lunghi */
+  }
+
+  .navbar-nav {
+    flex-direction: column; /* I link diventano verticali */
+    width: 100%;
+    text-align: center; /* Centra i link */
+    padding-top: 10px;
+  }
+
+  .navbar-nav li {
+    margin: 10px 0; /* Spazio verticale tra i link */
+  }
+}
+</style>
+
+
+<nav class="navbar">
+  <div class="navbar-brand">
+    <a>Viaggio Nel Sud Europa</a>
+  </div>
+  <button class="navbar-toggler" aria-label="Toggle navigation">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <div class="navbar-collapse">
+    <ul class="navbar-nav">
+      <li><a href="/home">Home</a></li>
+      <li><%= link_to "chi siamo", about_path %></li>
+      <li><a href="/contact">Contatti</a></li>
+    </ul>
+  </div>
+</nav>
+
