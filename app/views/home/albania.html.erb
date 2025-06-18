@@ -1,14 +1,10 @@
-<%# app/views/pages/about.html.erb %>
-
 <!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Viaggio Nel Sud Europa - Chi Siamo</title>
+    <title>Albania: Viaggio Nel Sud Europa</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-    <%# Qui di solito includeresti il tuo stylesheet principale di Rails, ad esempio: %>
-    <%# <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <style>
         :root {
             --primary-dark-blue: #1A2E4E;
@@ -28,7 +24,7 @@
             line-height: 1.6;
         }
 
-        /* Navbar Styling (copied from your previous CSS for self-contained example) */
+        /* Navbar Styling */
         .navbar {
             background-color: var(--primary-dark-blue);
             color: var(--text-light);
@@ -130,28 +126,46 @@
             text-align: right;
         }
 
-        /* Hero Section for About Page */
-        .hero-section {
-            background: linear-gradient(rgba(26, 46, 78, 0.7), rgba(26, 46, 78, 0.7)), url('https://images.unsplash.com/photo-1510414995971-8742407519ff?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
+        /* Hero Section for Albania Page */
+        .hero-albania {
+            background: linear-gradient(rgba(26, 46, 78, 0.7), rgba(26, 46, 78, 0.7)), url('https://images.unsplash.com/photo-1546252988-1cf01402c525?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
             color: var(--text-light);
             text-align: center;
-            padding: 80px 20px; /* Slightly less padding than home hero */
+            padding: 100px 20px;
             position: relative;
         }
 
-        .hero-section h1 {
+        .hero-albania h1 {
             font-family: 'Montserrat', sans-serif;
-            font-size: 3.5em; /* Slightly smaller for internal pages */
-            margin-bottom: 15px;
+            font-size: 4em;
+            margin-bottom: 20px;
             font-weight: 700;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
-        .hero-section p {
-            font-size: 1.3em;
-            max-width: 700px;
-            margin: 0 auto 30px auto;
+        .hero-albania p {
+            font-size: 1.5em;
+            max-width: 800px;
+            margin: 0 auto 40px auto;
             font-weight: 300;
+        }
+
+        .hero-button {
+            display: inline-block;
+            background-color: var(--accent-light-blue);
+            color: var(--primary-dark-blue);
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-button:hover {
+            background-color: #82cccc;
+            transform: translateY(-2px);
         }
 
         /* Main Content Styling */
@@ -186,64 +200,75 @@
             font-size: 1.1em;
         }
 
-        .owner-info {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
+        /* Specific styles for Albania page content */
+        .attraction-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
             margin-top: 30px;
-            padding: 25px;
+        }
+
+        .attraction-card {
             background-color: var(--grey-background);
             border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        }
-
-        .owner-info img {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 20px;
-            border: 5px solid var(--accent-light-blue);
+            overflow: hidden;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
 
-        .owner-info h3 {
+        .attraction-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .attraction-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .attraction-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .attraction-content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .attraction-content h3 {
             font-family: 'Montserrat', sans-serif;
             color: var(--primary-dark-blue);
-            font-size: 2em;
+            font-size: 1.7em;
+            margin-top: 0;
             margin-bottom: 10px;
         }
 
-        .owner-info .title {
-            font-size: 1.2em;
-            font-weight: 600;
-            color: var(--secondary-blue);
+        .attraction-content p {
+            font-size: 0.95em;
+            color: var(--text-dark);
             margin-bottom: 15px;
+            flex-grow: 1;
         }
 
-        .owner-info p {
-            font-size: 1.1em;
-            max-width: 700px;
-            margin: 0 auto 10px auto;
-        }
-
-        .hero-button {
+        .attraction-content a {
             display: inline-block;
-            background-color: var(--accent-light-blue);
-            color: var(--primary-dark-blue);
-            padding: 15px 30px;
-            border-radius: 50px;
+            color: var(--accent-light-blue);
+            font-weight: 600;
             text-decoration: none;
-            font-weight: 700;
-            font-size: 1.1em;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            border-bottom: 2px solid transparent;
+            transition: border-bottom 0.3s ease, color 0.3s ease;
+            align-self: flex-start;
         }
 
-        .hero-button:hover {
-            background-color: #82ccdd; /* A slightly lighter shade */
-            transform: translateY(-2px);
+        .attraction-content a:hover {
+            border-bottom: 2px solid var(--accent-light-blue);
+            color: var(--primary-dark-blue);
         }
 
         /* Footer Styling */
@@ -257,18 +282,21 @@
             box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
         }
 
-        /* Media Query for smaller screens (copied from your previous CSS) */
+        /* Media Queries */
         @media (max-width: 992px) {
             .navbar {
                 flex-wrap: wrap;
                 padding: 15px 20px;
             }
+
             .navbar-brand {
                 flex-grow: 1;
             }
+
             .navbar-toggler {
                 display: block;
             }
+
             .navbar-collapse {
                 width: 100%;
                 max-height: 0;
@@ -278,62 +306,63 @@
                 text-align: center;
                 padding: 0;
             }
+
             .navbar-collapse.show {
                 max-height: 300px;
                 padding: 10px 0;
             }
+
             .navbar-nav {
                 flex-direction: column;
                 width: 100%;
             }
+
             .navbar-nav li {
                 margin: 15px 0;
             }
+
             .navbar-nav a {
                 font-size: 18px;
                 padding: 10px 0;
                 display: block;
             }
+
             .navbar-nav a::after {
                 display: none;
             }
-            .hero-section h1 {
+
+            .hero-albania h1 {
                 font-size: 3em;
             }
-            .hero-section p {
+
+            .hero-albania p {
                 font-size: 1.2em;
             }
+
             section {
                 padding: 30px 20px;
             }
+
             section h2 {
                 font-size: 1.8em;
             }
-            .owner-info img {
-                width: 150px;
-                height: 150px;
-            }
-            .owner-info h3 {
-                font-size: 1.8em;
+
+            .attraction-grid {
+                grid-template-columns: 1fr;
             }
         }
 
         @media (max-width: 576px) {
-            .hero-section h1 {
+            .hero-albania h1 {
                 font-size: 2.5em;
             }
-            .hero-section p {
+
+            .hero-albania p {
                 font-size: 1em;
             }
+
             .navbar-brand a {
                 font-size: 24px;
-            }
-            .owner-info img {
-                width: 120px;
-                height: 120px;
-            }
-            .owner-info h3 {
-                font-size: 1.5em;
             }
         }
     </style>
@@ -354,56 +383,96 @@
                 <li><a href="/home">Home</a></li>
                 <li><a href="/about">Chi Siamo</a></li>
                 <li><a href="/contact">Contatti</a></li>
+                <li><a href="/spagnia">Spagna</a></li>
+                <li><a href="/francia">Francia</a></li>
+                <li><a href="/germania">Germania</a></li>
+                <li><a href="/albania">Albania</a></li>
+                <li><a href="/grecia">Grecia</a></li>
             </ul>
         </div>
     </nav>
 
-    <header class="hero-section">
-        <h1>La Nostra Storia, La Tua Avventura</h1>
-        <p>Siamo il cuore pulsante dietro ogni viaggio indimenticabile nel Sud Europa.</p>
+    <header class="hero-albania">
+        <h1>Scopri la Genuina Albania</h1>
+        <p>Un tesoro nascosto dei Balcani, tra coste mozzafiato, montagne aspre e un'antica storia.</p>
+        <a href="#explore-albania" class="hero-button">Inizia la Tua Avventura Albanese</a>
     </header>
 
     <main>
-        <section id="introduzione-about">
-            <h2>Chi Siamo</h2>
-            <p><strong>Viaggio Nel Sud Europa</strong> nasce dalla profonda passione per la scoperta e l'amore incondizionato per le terre baciate dal sole del Mediterraneo. Dal 2015, la nostra missione è trasformare i sogni in realtà, creando itinerari su misura che vanno ben oltre le guide tradizionali.</p>
-            <p>Crediamo che ogni viaggio debba essere un'immersione autentica, un'opportunità per connettersi con culture millenarie, paesaggi mozzafiato e sapori indimenticabili. La nostra missione è offrirti non solo una destinazione, ma un'esperienza che arricchisca l'anima e lasci ricordi indelebili.</p>
+        <section id="explore-albania">
+            <h2>Benvenuti in Albania</h2>
+            <p>L'Albania è una destinazione emergente che sorprende con la sua bellezza naturale incontaminata e la sua ricca eredità culturale. Dalle spiagge cristalline della Riviera Albanese alle vette imponenti delle Alpi Albanesi, ogni angolo di questo paese offre avventura e scoperta.</p>
+            <p>Preparati a esplorare antiche rovine romane e ottomane, a passeggiare per città storiche dichiarate Patrimonio dell'Umanità UNESCO, a gustare una cucina deliziosa e a incontrare la calorosa ospitalità albanese. L'Albania è pronta a svelarti i suoi segreti!</p>
         </section>
 
         ---
 
-        <section id="filosofia">
-            <h2>La Nostra Filosofia</h2>
-            <p>Al centro di ogni nostra proposta c'è un impegno incrollabile verso:</p>
-            <ul>
-                <li><strong>Autenticità:</strong> Ti portiamo nei luoghi dove la vera anima del Sud Europa si rivela, lontano dalle folle.</li>
-                <li><strong>Personalizzazione:</strong> Ogni itinerario è cucito su misura per te, riflettendo i tuoi interessi e desideri.</li>
-                <li><strong>Sostenibilità:</strong> Promuoviamo un turismo responsabile che rispetti l'ambiente e le comunità locali.</li>
-                <li><strong>Eccellenza:</strong> Dagli alloggi alle guide, selezioniamo solo il meglio per garantirti un viaggio senza pensieri.</li>
-                <li><strong>Supporto Costante:</strong> Siamo al tuo fianco prima, durante e dopo la tua avventura, con assistenza dedicata.</li>
-            </ul>
-        </section>
+        <section id="highlights">
+            <h2>Attrazioni Imperdibili</h2>
+            <div class="attraction-grid">
+                <div class="attraction-card">
+                    <img src="https://images.unsplash.com/photo-1627931393661-825f38a5e8f4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gjirokastër, Albania">
+                    <div class="attraction-content">
+                        <h3>Città Storiche UNESCO</h3>
+                        <p>Visita le affascinanti città di Berat e Gjirokastër, patrimonio UNESCO, con le loro case ottomane uniche e castelli imponenti.</p>
+                        <a href="#">Esplora la Storia Albanese</a>
+                    </div>
+                </div>
 
-        ---
+                <div class="attraction-card">
+                    <img src="https://images.unsplash.com/photo-1546252988-1cf01402c525?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Spiaggia di Ksamil, Albania">
+                    <div class="attraction-content">
+                        <h3>La Riviera Albanese</h3>
+                        <p>Rilassati sulle spiagge paradisiache di Ksamil, Dhermi o Himara, bagnate dalle acque cristalline del Mar Ionio.</p>
+                        <a href="#">Scopri le Spiagge</a>
+                    </div>
+                </div>
 
-        <section id="il-fondatore">
-            <h2>Il Nostro Fondatore</h2>
-            <div class="owner-info">
-                <%# Puoi sostituire questa URL con un'immagine di Andrej Antonio Bos salvata in app/assets/images/andrej_bos.jpg %>
-                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Foto di Andrej Antonio Bos">
-                <h3>Andrej Antonio Bos</h3>
-                <p class="title">Proprietario & Fondatore</p>
-                <p>Andrej Antonio Bos ha creato Viaggio Nel Sud Europa con una visione chiara: offrire esperienze di viaggio uniche e personalizzate, basate su una profonda conoscenza del territorio e un rispetto autentico per le culture locali. La sua passione per l'esplorazione e l'attenzione ai dettagli sono il cuore pulsante di ogni avventura che proponiamo.</p>
-                <p>Con anni di esperienza nel settore e innumerevoli viaggi all'attivo, Andrej si impegna personalmente a garantire che ogni itinerario rifletta la qualità e l'autenticità che i nostri clienti meritano.</p>
+                <div class="attraction-card">
+                    <img src="https://images.unsplash.com/photo-1624647384617-1f4865e902b4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Occhio Blu, Albania">
+                    <div class="attraction-content">
+                        <h3>Natura Incontaminata</h3>
+                        <p>Ammira la sorgente dell'Occhio Blu (Syri i Kaltër), esplora il Parco Nazionale di Theth o naviga sul Lago di Koman.</p>
+                        <a href="#">Vivi l'Avventura Naturale</a>
+                    </div>
+                </div>
+
+                <div class="attraction-card">
+                    <img src="https://images.unsplash.com/photo-1625902409545-21d39b83b3e6?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Tirana, Albania">
+                    <div class="attraction-content">
+                        <h3>Tirana: La Capitale Vivace</h3>
+                        <p>Esplora la dinamica capitale albanese con la sua colorata architettura, i musei e una vivace vita notturna.</p>
+                        <a href="#">Visita Tirana</a>
+                    </div>
+                </div>
             </div>
         </section>
 
         ---
 
-        <section id="contatti-about">
-            <h2>Inizia la Tua Avventura con Noi</h2>
-            <p>Siamo pronti ad ascoltare i tuoi desideri e a creare il viaggio perfetto per te. Contattaci oggi stesso per iniziare a pianificare la tua prossima esplorazione del Sud Europa!</p>
-            <p><a href="/contact" class="hero-button">Contattaci Ora</a></p>
+        <section id="cuisine">
+            <h2>Sapori Autentici della Cucina Albanese</h2>
+            <p>La cucina albanese è un delizioso mix di influenze balcaniche, mediterranee e ottomane, caratterizzata da ingredienti freschi e sapori genuini:</p>
+            <ul>
+                <li><strong>Tavë Kosi:</strong> Agnello al forno con yogurt e riso, un piatto nazionale da provare.</li>
+                <li><strong>Byrek:</strong> Saporita torta salata ripiena di carne, formaggio o spinaci.</li>
+                <li><strong>Fërgesë:</strong> Stufato cremoso a base di peperoni, pomodori, ricotta e spezie.</li>
+                <li><strong>Qofte:</strong> Polpette di carne, spesso servite con salsa yogurt.</li>
+                <li><strong>Pesce Fresco:</strong> Sulle coste, non perdere l'occasione di gustare pesce e frutti di mare appena pescati.</li>
+                <li><strong>Raki:</strong> La tradizionale grappa locale, spesso offerta come segno di benvenuto.</li>
+            </ul>
+            <p>Un viaggio in Albania è anche un'esplorazione culinaria che ti conquisterà!</p>
+        </section>
+
+        ---
+
+        <section id="plan-your-trip">
+            <h2>Pianifica il Tuo Viaggio in Albania</h2>
+            <p>Che tu desideri un'avventura sulle montagne, un relax sulle spiagge idilliache o un'immersione nella storia, possiamo aiutarti a creare l'itinerario perfetto per la tua esplorazione dell'Albania.</p>
+            <p>Contattaci ora per iniziare a progettare il tuo viaggio da sogno in Albania!</p>
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="/contact" class="hero-button">Contattaci per l'Albania</a>
+            </div>
         </section>
     </main>
 
@@ -412,7 +481,7 @@
     </footer>
 
     <script>
-        // JavaScript per la navigazione mobile
+        // Navbar toggle functionality
         document.addEventListener('DOMContentLoaded', function() {
             const toggler = document.querySelector('.navbar-toggler');
             const collapse = document.querySelector('.navbar-collapse');

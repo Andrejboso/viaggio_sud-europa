@@ -8,6 +8,15 @@ class HomeController < ApplicationController
   def francia
   end
 
+  def germania
+  end
+
+  def albania
+  end
+
+  def grecia
+  end
+
   def about
   end
 
