@@ -1,2 +1,506 @@
-<h1>Benvenuti in francia</h1>
-<a href="/home">torna alla home</a>
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Francia: Viaggio Nel Sud Europa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-dark-blue: #1A2E4E;
+            --secondary-blue: #2A4C7F;
+            --accent-light-blue: #6AABD2;
+            --text-light: #F0F4F8;
+            --text-dark: #333;
+            --grey-background: #EAEFF4;
+            --border-color: #4A6C9B;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            background-color: var(--grey-background);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Navbar Styling (copied from your existing CSS) */
+        .navbar {
+            background-color: var(--primary-dark-blue);
+            color: var(--text-light);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand a {
+            color: var(--accent-light-blue);
+            text-decoration: none;
+            font-size: 28px;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-brand a:hover {
+            color: var(--text-light);
+        }
+
+        .navbar-nav {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .navbar-nav li {
+            margin-left: 30px;
+        }
+
+        .navbar-nav a {
+            color: var(--accent-light-blue);
+            text-decoration: none;
+            padding: 8px 0;
+            font-size: 17px;
+            font-weight: 600;
+            transition: color 0.3s ease, border-bottom 0.3s ease;
+            position: relative;
+        }
+
+        .navbar-nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--text-light);
+            transition: width 0.3s ease-out;
+        }
+
+        .navbar-nav a:hover {
+            color: var(--text-light);
+        }
+
+        .navbar-nav a:hover::after {
+            width: 100%;
+        }
+
+        .navbar-toggler {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--accent-light-blue);
+            font-size: 28px;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 1000;
+        }
+
+        .navbar-toggler .icon-bar {
+            display: block;
+            width: 30px;
+            height: 3px;
+            background-color: var(--accent-light-blue);
+            margin: 6px 0;
+            transition: all 0.3s ease-in-out;
+            border-radius: 2px;
+        }
+
+        .navbar-toggler.open .icon-bar:nth-child(1) {
+            transform: rotate(-45deg) translate(-6px, 6px);
+        }
+
+        .navbar-toggler.open .icon-bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .navbar-toggler.open .icon-bar:nth-child(3) {
+            transform: rotate(45deg) translate(-6px, -6px);
+        }
+
+        .navbar-collapse {
+            flex-grow: 1;
+            text-align: right;
+        }
+
+        /* Hero Section for France Page */
+        .hero-france {
+            background: linear-gradient(rgba(26, 46, 78, 0.7), rgba(26, 46, 78, 0.7)), url('https://images.unsplash.com/photo-1549144503-34e87000d235?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
+            color: var(--text-light);
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+        }
+
+        .hero-france h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 4em;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-france p {
+            font-size: 1.5em;
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+            font-weight: 300;
+        }
+
+        .hero-button {
+            display: inline-block;
+            background-color: var(--accent-light-blue);
+            color: var(--primary-dark-blue);
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-button:hover {
+            background-color: #82ccdd;
+            transform: translateY(-2px);
+        }
+
+        /* Main Content Styling (copied and slightly adapted) */
+        main {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            gap: 40px;
+        }
+
+        section {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            border-top: 5px solid var(--secondary-blue);
+        }
+
+        section h2 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--primary-dark-blue);
+            font-size: 2.2em;
+            margin-bottom: 25px;
+            border-bottom: 2px solid var(--accent-light-blue);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        section p {
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        /* Specific styles for France page content */
+        .attraction-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .attraction-card {
+            background-color: var(--grey-background);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .attraction-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .attraction-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .attraction-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .attraction-content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .attraction-content h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--primary-dark-blue);
+            font-size: 1.7em;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .attraction-content p {
+            font-size: 0.95em;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .attraction-content a {
+            display: inline-block;
+            color: var(--accent-light-blue);
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            transition: border-bottom 0.3s ease, color 0.3s ease;
+            align-self: flex-start; /* Aligns the link to the start */
+        }
+
+        .attraction-content a:hover {
+            border-bottom: 2px solid var(--accent-light-blue);
+            color: var(--primary-dark-blue);
+        }
+
+
+        /* Footer Styling (copied from your existing CSS) */
+        footer {
+            background-color: var(--primary-dark-blue);
+            color: var(--text-light);
+            text-align: center;
+            padding: 25px 20px;
+            margin-top: 50px;
+            font-size: 0.9em;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Media Queries (copied and adapted) */
+        @media (max-width: 992px) {
+            .navbar {
+                flex-wrap: wrap;
+                padding: 15px 20px;
+            }
+
+            .navbar-brand {
+                flex-grow: 1;
+            }
+
+            .navbar-toggler {
+                display: block;
+            }
+
+            .navbar-collapse {
+                width: 100%;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.4s ease-out;
+                background-color: var(--primary-dark-blue);
+                text-align: center;
+                padding: 0;
+            }
+
+            .navbar-collapse.show {
+                max-height: 300px;
+                padding: 10px 0;
+            }
+
+            .navbar-nav {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .navbar-nav li {
+                margin: 15px 0;
+            }
+
+            .navbar-nav a {
+                font-size: 18px;
+                padding: 10px 0;
+                display: block;
+            }
+
+            .navbar-nav a::after {
+                display: none;
+            }
+
+            .hero-france h1 {
+                font-size: 3em;
+            }
+
+            .hero-france p {
+                font-size: 1.2em;
+            }
+
+            section {
+                padding: 30px 20px;
+            }
+
+            section h2 {
+                font-size: 1.8em;
+            }
+
+            .attraction-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-france h1 {
+                font-size: 2.5em;
+            }
+
+            .hero-france p {
+                font-size: 1em;
+            }
+
+            .navbar-brand a {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <a href="/">Viaggio Nel Sud Europa</a>
+        </div>
+        <button class="navbar-toggler" aria-label="Toggle navigation">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <div class="navbar-collapse">
+            <ul class="navbar-nav">
+                <li><a href="/home">Home</a></li>
+                <li><a href="/about">Chi Siamo</a></li>
+                <li><a href="/contact">Contatti</a></li>
+                <li><a href="/spagnia">Spagna</a></li>
+                <li><a href="/francia">Francia</a></li> <li><a href="/germania">Germania</a></li>
+                <li><a href="/albania">Albania</a></li>
+                <li><a href="/grecia">Grecia</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero-france">
+        <h1>Scopri l'Incanto della Francia</h1>
+        <p>Dalle luci di Parigi alle coste baciate dal sole, un viaggio tra arte, storia, gastronomia e paesaggi da sogno.</p>
+        <a href="#explore-france" class="hero-button">Inizia la Tua Esplorazione</a>
+    </header>
+
+    <main>
+        <section id="explore-france">
+            <h2>Benvenuti in Francia</h2>
+            <p>La Francia, un paese che evoca immagini di romanticismo, alta moda, arte raffinata e cucina sublime. Con la sua incredibile diversità geografica e culturale, offre un'esperienza di viaggio per ogni gusto.</p>
+            <p>Esplora le cime innevate delle Alpi, le lavande della Provenza, le spiagge dorate della Costa Azzurra, i castelli della Loira o le vibranti strade di Parigi. Ogni regione racconta una storia unica, pronta per essere scoperta.</p>
+        </section>
+
+        ---
+
+        <section id="highlights">
+            <h2>Attrazioni Imperdibili</h2>
+            <div class="attraction-grid">
+                <div class="attraction-card">
+                    <img src="https://images.unsplash.com/photo-1549144503-34e87000d235?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Torre Eiffel, Parigi">
+                    <div class="attraction-content">
+                        <h3>Parigi: La Città dell'Amore</h3>
+                        <p>Visita la Torre Eiffel, il Louvre, Notre-Dame e passeggia lungo la Senna. Vivi la magia della capitale francese.</p>
+                        <a href="#">Scopri Parigi</a>
+                    </div>
+                </div>
+
+                <div class="attraction-card">
+                    <img src="https://images.unsplash.com/photo-1620959926615-51921f649204?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Campi di Lavanda, Provenza">
+                    <div class="attraction-content">
+                        <h3>Provenza: Colori e Profumi</h3>
+                        <p>Campi di lavanda, villaggi pittoreschi, mercati provenzali e la cucina mediterranea del sud della Francia.</p>
+                        <a href="#">Esplora la Provenza</a>
+                    </div>
+                </div>
+
+                <div class="attraction-card">
+                    <img src="https://images.unsplash.com/photo-1620025983808-16e780447382?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Castello della Loira">
+                    <div class="attraction-content">
+                        <h3>Valle della Loira: Castelli Fiabeschi</h3>
+                        <p>Ammira i magnifici castelli rinascimentali come Chambord, Chenonceau e Azay-le-Rideau, patrimonio UNESCO.</p>
+                        <a href="#">Visita i Castelli</a>
+                    </div>
+                </div>
+
+                <div class="attraction-card">
+                    <img src="https://images.unsplash.com/photo-1601614749341-a67b45f44b20?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Bordeaux vigneti">
+                    <div class="attraction-content">
+                        <h3>Bordeaux e i Vigneti: Il Paradiso del Vino</h3>
+                        <p>Degusta vini pregiati nelle famose cantine di Bordeaux e scopri le tradizioni vinicole della regione.</p>
+                        <a href="#">Degusta Vini</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        ---
+
+        <section id="cuisine">
+            <h2>Delizie Gastronomiche Francesi</h2>
+            <p>La cucina francese è rinomata in tutto il mondo per la sua raffinatezza e varietà. Ogni regione offre specialità uniche:</p>
+            <ul>
+                <li><strong>Parigi:</strong> Croissant, macarons, ostriche e il celebre *Coq au Vin*.</li>
+                <li><strong>Provenza:</strong> *Ratatouille*, *Bouillabaisse* (zuppa di pesce), formaggi di capra e olio d'oliva.</li>
+                <li><strong>Bretagna:</strong> Crêpes, galette e sidro di mele.</li>
+                <li><strong>Bordeaux:</strong> Vini rossi, *foie gras* e carne di bue.</li>
+                <li><strong>Alsazia:</strong> *Choucroute* (cavolo acido con salsicce) e vini bianchi.</li>
+            </ul>
+            <p>Un viaggio in Francia è anche un'esplorazione culinaria che delizierà ogni palato.</p>
+        </section>
+
+        ---
+
+        <section id="plan-your-trip">
+            <h2>Pianifica il Tuo Viaggio in Francia</h2>
+            <p>Siamo qui per aiutarti a creare l'itinerario perfetto, che tu sogni una fuga romantica a Parigi, un tour enogastronomico o un'avventura culturale.</p>
+            <p>Contattaci per una consulenza personalizzata e inizia a sognare la tua avventura francese!</p>
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="/contact" class="hero-button">Contattaci per la Francia</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Viaggio Nel Sud Europa. Tutti i diritti riservati.</p>
+    </footer>
+
+    <script>
+        // Navbar toggle functionality (copied from your existing JS)
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggler = document.querySelector('.navbar-toggler');
+            const collapse = document.querySelector('.navbar-collapse');
+
+            toggler.addEventListener('click', function() {
+                collapse.classList.toggle('show');
+                toggler.classList.toggle('open');
+            });
+
+            const navLinks = document.querySelectorAll('.navbar-nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 992) {
+                        collapse.classList.remove('show');
+                        toggler.classList.remove('open');
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

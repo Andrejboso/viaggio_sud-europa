@@ -1,3 +1,444 @@
-<h1>Andrej Antonio Boso</h1>
-<h3>ciao a tutti</h3>
-<%= link_to 'home', home_path %>
+<%# app/views/pages/about.html.erb %>
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viaggio Nel Sud Europa - Chi Siamo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <%# Qui di solito includeresti il tuo stylesheet principale di Rails, ad esempio: %>
+    <%# <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <style>
+        :root {
+            --primary-dark-blue: #1A2E4E;
+            --secondary-blue: #2A4C7F;
+            --accent-light-blue: #6AABD2;
+            --text-light: #F0F4F8;
+            --text-dark: #333;
+            --grey-background: #EAEFF4;
+            --border-color: #4A6C9B;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            background-color: var(--grey-background);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Navbar Styling (copied from your previous CSS for self-contained example) */
+        .navbar {
+            background-color: var(--primary-dark-blue);
+            color: var(--text-light);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand a {
+            color: var(--accent-light-blue);
+            text-decoration: none;
+            font-size: 28px;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-brand a:hover {
+            color: var(--text-light);
+        }
+
+        .navbar-nav {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .navbar-nav li {
+            margin-left: 30px;
+        }
+
+        .navbar-nav a {
+            color: var(--accent-light-blue);
+            text-decoration: none;
+            padding: 8px 0;
+            font-size: 17px;
+            font-weight: 600;
+            transition: color 0.3s ease, border-bottom 0.3s ease;
+            position: relative;
+        }
+
+        .navbar-nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--text-light);
+            transition: width 0.3s ease-out;
+        }
+
+        .navbar-nav a:hover {
+            color: var(--text-light);
+        }
+
+        .navbar-nav a:hover::after {
+            width: 100%;
+        }
+
+        .navbar-toggler {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--accent-light-blue);
+            font-size: 28px;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 1000;
+        }
+
+        .navbar-toggler .icon-bar {
+            display: block;
+            width: 30px;
+            height: 3px;
+            background-color: var(--accent-light-blue);
+            margin: 6px 0;
+            transition: all 0.3s ease-in-out;
+            border-radius: 2px;
+        }
+
+        .navbar-toggler.open .icon-bar:nth-child(1) {
+            transform: rotate(-45deg) translate(-6px, 6px);
+        }
+
+        .navbar-toggler.open .icon-bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .navbar-toggler.open .icon-bar:nth-child(3) {
+            transform: rotate(45deg) translate(-6px, -6px);
+        }
+
+        .navbar-collapse {
+            flex-grow: 1;
+            text-align: right;
+        }
+
+        /* Hero Section for About Page */
+        .hero-section {
+            background: linear-gradient(rgba(26, 46, 78, 0.7), rgba(26, 46, 78, 0.7)), url('https://images.unsplash.com/photo-1510414995971-8742407519ff?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
+            color: var(--text-light);
+            text-align: center;
+            padding: 80px 20px; /* Slightly less padding than home hero */
+            position: relative;
+        }
+
+        .hero-section h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5em; /* Slightly smaller for internal pages */
+            margin-bottom: 15px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-section p {
+            font-size: 1.3em;
+            max-width: 700px;
+            margin: 0 auto 30px auto;
+            font-weight: 300;
+        }
+
+        /* Main Content Styling */
+        main {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            gap: 40px;
+        }
+
+        section {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            border-top: 5px solid var(--secondary-blue);
+        }
+
+        section h2 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--primary-dark-blue);
+            font-size: 2.2em;
+            margin-bottom: 25px;
+            border-bottom: 2px solid var(--accent-light-blue);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        section p {
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .team-member {
+            text-align: center;
+            background-color: var(--grey-background);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .team-member img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 3px solid var(--accent-light-blue);
+        }
+
+        .team-member h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--primary-dark-blue);
+            font-size: 1.5em;
+            margin-bottom: 5px;
+        }
+
+        .team-member p {
+            font-size: 0.95em;
+            color: var(--text-dark);
+            margin-bottom: 0;
+        }
+
+        .hero-button {
+            display: inline-block;
+            background-color: var(--accent-light-blue);
+            color: var(--primary-dark-blue);
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-button:hover {
+            background-color: #82ccdd; /* A slightly lighter shade */
+            transform: translateY(-2px);
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: var(--primary-dark-blue);
+            color: var(--text-light);
+            text-align: center;
+            padding: 25px 20px;
+            margin-top: 50px;
+            font-size: 0.9em;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Media Query for smaller screens (copied from your previous CSS) */
+        @media (max-width: 992px) {
+            .navbar {
+                flex-wrap: wrap;
+                padding: 15px 20px;
+            }
+            .navbar-brand {
+                flex-grow: 1;
+            }
+            .navbar-toggler {
+                display: block;
+            }
+            .navbar-collapse {
+                width: 100%;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.4s ease-out;
+                background-color: var(--primary-dark-blue);
+                text-align: center;
+                padding: 0;
+            }
+            .navbar-collapse.show {
+                max-height: 300px;
+                padding: 10px 0;
+            }
+            .navbar-nav {
+                flex-direction: column;
+                width: 100%;
+            }
+            .navbar-nav li {
+                margin: 15px 0;
+            }
+            .navbar-nav a {
+                font-size: 18px;
+                padding: 10px 0;
+                display: block;
+            }
+            .navbar-nav a::after {
+                display: none;
+            }
+            .hero-section h1 {
+                font-size: 3em;
+            }
+            .hero-section p {
+                font-size: 1.2em;
+            }
+            section {
+                padding: 30px 20px;
+            }
+            section h2 {
+                font-size: 1.8em;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-section h1 {
+                font-size: 2.5em;
+            }
+            .hero-section p {
+                font-size: 1em;
+            }
+            .navbar-brand a {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <a href="/">Viaggio Nel Sud Europa</a>
+        </div>
+        <button class="navbar-toggler" aria-label="Toggle navigation">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <div class="navbar-collapse">
+            <ul class="navbar-nav">
+                <li><a href="/home">Home</a></li>
+                <li><a href="/about">Chi Siamo</a></li>
+                <li><a href="/contact">Contatti</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero-section">
+        <h1>La Nostra Storia, La Tua Avventura</h1>
+        <p>Siamo il cuore pulsante dietro ogni viaggio indimenticabile nel Sud Europa.</p>
+    </header>
+
+    <main>
+        <section id="introduzione-about">
+            <h2>Chi Siamo</h2>
+            <p><strong>Viaggio Nel Sud Europa</strong> nasce dalla profonda passione per la scoperta e l'amore incondizionato per le terre baciate dal sole del Mediterraneo. Dal 2015, il nostro team di esperti viaggiatori e curatori di esperienze si dedica a trasformare i sogni in realtà, creando itinerari su misura che vanno ben oltre le guide tradizionali.</p>
+            <p>Crediamo che ogni viaggio debba essere un'immersione autentica, un'opportunità per connettersi con culture millenarie, paesaggi mozzafiato e sapori indimenticabili. La nostra missione è offrirti non solo una destinazione, ma un'esperienza che arricchisca l'anima e lasci ricordi indelebili.</p>
+        </section>
+
+        ---
+
+        <section id="filosofia">
+            <h2>La Nostra Filosofia</h2>
+            <p>Al centro di ogni nostra proposta c'è un impegno incrollabile verso:</p>
+            <ul>
+                <li><strong>Autenticità:</strong> Ti portiamo nei luoghi dove la vera anima del Sud Europa si rivela, lontano dalle folle.</li>
+                <li><strong>Personalizzazione:</strong> Ogni itinerario è cucito su misura per te, riflettendo i tuoi interessi e desideri.</li>
+                <li><strong>Sostenibilità:</strong> Promuoviamo un turismo responsabile che rispetti l'ambiente e le comunità locali.</li>
+                <li><strong>Eccellenza:</strong> Dagli alloggi alle guide, selezioniamo solo il meglio per garantirti un viaggio senza pensieri.</li>
+                <li><strong>Supporto Costante:</strong> Siamo al tuo fianco prima, durante e dopo la tua avventura, con assistenza dedicata.</li>
+            </ul>
+        </section>
+
+        ---
+
+        <section id="il-nostro-team">
+            <h2>Il Nostro Team</h2>
+            <p>Dietro ogni itinerario impeccabile e ogni sorriso di un viaggiatore soddisfatto c'è un team di persone dedicate e appassionate. Ognuno di noi porta una profonda conoscenza del territorio e un entusiasmo contagioso per il viaggio.</p>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Foto di Sara Rossi">
+                    <h3>Sara Rossi</h3>
+                    <p>Fondatrice & CEO</p>
+                    <p>Specialista in viaggi culturali e storici, ama l'Italia e la Grecia.</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Foto di Marco Bianchi">
+                    <h3>Marco Bianchi</h3>
+                    <p>Responsabile Destinazioni</p>
+                    <p>Esperto di Spagna e Portogallo, sempre alla ricerca di gemme nascoste.</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1976&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Foto di Laura Verdi">
+                    <h3>Laura Verdi</h3>
+                    <p>Curatrice Esperienze</p>
+                    <p>Appassionata di enogastronomia, crea itinerari culinari indimenticabili.</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Foto di Andrea Neri">
+                    <h3>Andrea Neri</h3>
+                    <p>Supporto Clienti</p>
+                    <p>Il nostro punto di riferimento per ogni necessità, disponibile 24/7.</p>
+                </div>
+            </div>
+        </section>
+
+        ---
+
+        <section id="contatti-about">
+            <h2>Inizia la Tua Avventura con Noi</h2>
+            <p>Siamo pronti ad ascoltare i tuoi desideri e a creare il viaggio perfetto per te. Contattaci oggi stesso per iniziare a pianificare la tua prossima esplorazione del Sud Europa!</p>
+            <p><a href="/contact" class="hero-button">Contattaci Ora</a></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Viaggio Nel Sud Europa. Tutti i diritti riservati.</p>
+    </footer>
+
+    <script>
+        // JavaScript per la navigazione mobile
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggler = document.querySelector('.navbar-toggler');
+            const collapse = document.querySelector('.navbar-collapse');
+
+            toggler.addEventListener('click', function() {
+                collapse.classList.toggle('show');
+                toggler.classList.toggle('open');
+            });
+
+            const navLinks = document.querySelectorAll('.navbar-nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 992) {
+                        collapse.classList.remove('show');
+                        toggler.classList.remove('open');
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

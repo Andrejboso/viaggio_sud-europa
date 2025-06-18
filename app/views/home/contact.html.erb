@@ -1,22 +1,509 @@
-<p>Numero di telefono:</p>
-<br><p>Email:</p>
-<br><p>Indirizzo:</p>
-<br><p>Orari di apertura:</p>
-<br><p>Contatti:</p>
-<br><p>Seguici sui social:</p>
-<br><p>Modulo di contatto:</p>
-<form action="/contact" method="post"></form>
-  <label for="name">Nome:</label>
-  <input type="text" id="name" name="name" required>
-  <br>
-  <label for="email">Email:</label>
-  <input type="email" id="email" name="email" required>
-  <br>
-  <label for="message">Messaggio:</label>
-  <textarea id="message" name="message" required></textarea>
-  <br>
-  <button type="submit">Invia</button>
-</form>
-<br>
-<a href="/home">Torna alla home</a>
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contatti: Viaggio Nel Sud Europa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-dark-blue: #1A2E4E;
+            --secondary-blue: #2A4C7F;
+            --accent-light-blue: #6AABD2;
+            --text-light: #F0F4F8;
+            --text-dark: #333;
+            --grey-background: #EAEFF4;
+            --border-color: #4A6C9B;
+            --form-field-background: #F8F8F8;
+            --form-border: #DCDCDC;
+        }
 
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            background-color: var(--grey-background);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Navbar Styling (copied for consistency) */
+        .navbar {
+            background-color: var(--primary-dark-blue);
+            color: var(--text-light);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand a {
+            color: var(--accent-light-blue);
+            text-decoration: none;
+            font-size: 28px;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-brand a:hover {
+            color: var(--text-light);
+        }
+
+        .navbar-nav {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .navbar-nav li {
+            margin-left: 30px;
+        }
+
+        .navbar-nav a {
+            color: var(--accent-light-blue);
+            text-decoration: none;
+            padding: 8px 0;
+            font-size: 17px;
+            font-weight: 600;
+            transition: color 0.3s ease, border-bottom 0.3s ease;
+            position: relative;
+        }
+
+        .navbar-nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--text-light);
+            transition: width 0.3s ease-out;
+        }
+
+        .navbar-nav a:hover {
+            color: var(--text-light);
+        }
+
+        .navbar-nav a:hover::after {
+            width: 100%;
+        }
+
+        .navbar-toggler {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--accent-light-blue);
+            font-size: 28px;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 1000;
+        }
+
+        .navbar-toggler .icon-bar {
+            display: block;
+            width: 30px;
+            height: 3px;
+            background-color: var(--accent-light-blue);
+            margin: 6px 0;
+            transition: all 0.3s ease-in-out;
+            border-radius: 2px;
+        }
+
+        .navbar-toggler.open .icon-bar:nth-child(1) {
+            transform: rotate(-45deg) translate(-6px, 6px);
+        }
+
+        .navbar-toggler.open .icon-bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .navbar-toggler.open .icon-bar:nth-child(3) {
+            transform: rotate(45deg) translate(-6px, -6px);
+        }
+
+        .navbar-collapse {
+            flex-grow: 1;
+            text-align: right;
+        }
+
+        /* Hero Section for Contact Page */
+        .hero-contact {
+            background: linear-gradient(rgba(26, 46, 78, 0.7), rgba(26, 46, 78, 0.7)), url('https://images.unsplash.com/photo-1549488349-166292723c34?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
+            color: var(--text-light);
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+        }
+
+        .hero-contact h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 4em;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-contact p {
+            font-size: 1.5em;
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+            font-weight: 300;
+        }
+
+        /* Main Content Styling */
+        main {
+            max-width: 900px; /* Slightly narrower for contact form */
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            gap: 40px;
+        }
+
+        section {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            border-top: 5px solid var(--secondary-blue);
+        }
+
+        section h2 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--primary-dark-blue);
+            font-size: 2.2em;
+            margin-bottom: 25px;
+            border-bottom: 2px solid var(--accent-light-blue);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        /* Contact Info Styles */
+        .contact-info {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .contact-info p {
+            font-size: 1.1em;
+            margin: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-info p strong {
+            margin-right: 10px;
+            color: var(--primary-dark-blue);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+
+        .contact-info p a {
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info p a:hover {
+            color: var(--accent-light-blue);
+        }
+
+        .contact-info i { /* For FontAwesome icons if you add them */
+            color: var(--accent-light-blue);
+            margin-right: 8px;
+            font-size: 1.2em;
+        }
+
+        .social-links {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin: 0 10px;
+            font-size: 2em; /* For social media icons */
+            color: var(--secondary-blue);
+            transition: color 0.3s ease, transform 0.2s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-light-blue);
+            transform: translateY(-3px);
+        }
+
+        /* Contact Form Styles */
+        .contact-form form {
+            display: grid;
+            gap: 20px;
+        }
+
+        .contact-form label {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: var(--primary-dark-blue);
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--form-border);
+            border-radius: 6px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1em;
+            background-color: var(--form-field-background);
+            box-sizing: border-box; /* Include padding in element's total width and height */
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contact-form input[type="text"]:focus,
+        .contact-form input[type="email"]:focus,
+        .contact-form textarea:focus {
+            border-color: var(--accent-light-blue);
+            box-shadow: 0 0 0 3px rgba(106, 171, 210, 0.2); /* Light blue glow */
+            outline: none;
+        }
+
+        .contact-form textarea {
+            resize: vertical; /* Allow vertical resizing */
+            min-height: 120px;
+        }
+
+        .contact-form button[type="submit"] {
+            background-color: var(--accent-light-blue);
+            color: var(--primary-dark-blue);
+            padding: 15px 25px;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: fit-content; /* Adjust button width to content */
+            margin-top: 10px; /* Space above button */
+        }
+
+        .contact-form button[type="submit"]:hover {
+            background-color: #82ccdd;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+        }
+
+        .back-to-home {
+            display: inline-block;
+            margin-top: 30px;
+            color: var(--accent-light-blue);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: color 0.3s ease, transform 0.2s ease;
+        }
+
+        .back-to-home:hover {
+            color: var(--primary-dark-blue);
+            transform: translateX(5px);
+        }
+
+        /* Footer Styling (copied for consistency) */
+        footer {
+            background-color: var(--primary-dark-blue);
+            color: var(--text-light);
+            text-align: center;
+            padding: 25px 20px;
+            margin-top: 50px;
+            font-size: 0.9em;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Media Queries (copied and adapted) */
+        @media (max-width: 992px) {
+            .navbar {
+                flex-wrap: wrap;
+                padding: 15px 20px;
+            }
+
+            .navbar-brand {
+                flex-grow: 1;
+            }
+
+            .navbar-toggler {
+                display: block;
+            }
+
+            .navbar-collapse {
+                width: 100%;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.4s ease-out;
+                background-color: var(--primary-dark-blue);
+                text-align: center;
+                padding: 0;
+            }
+
+            .navbar-collapse.show {
+                max-height: 300px;
+                padding: 10px 0;
+            }
+
+            .navbar-nav {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .navbar-nav li {
+                margin: 15px 0;
+            }
+
+            .navbar-nav a {
+                font-size: 18px;
+                padding: 10px 0;
+                display: block;
+            }
+
+            .navbar-nav a::after {
+                display: none;
+            }
+
+            .hero-contact h1 {
+                font-size: 3em;
+            }
+
+            .hero-contact p {
+                font-size: 1.2em;
+            }
+
+            section {
+                padding: 30px 20px;
+            }
+
+            section h2 {
+                font-size: 1.8em;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-contact h1 {
+                font-size: 2.5em;
+            }
+
+            .hero-contact p {
+                font-size: 1em;
+            }
+
+            .navbar-brand a {
+                font-size: 24px;
+            }
+
+            .contact-info p {
+                font-size: 1em;
+            }
+
+            .social-links a {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <a href="/">Viaggio Nel Sud Europa</a>
+        </div>
+        <button class="navbar-toggler" aria-label="Toggle navigation">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <div class="navbar-collapse">
+            <ul class="navbar-nav">
+                <li><a href="/home">Home</a></li>
+                <li><a href="/about">Chi Siamo</a></li>
+                <li><a href="/contact">Contatti</a></li> <li><a href="/spagnia">Spagna</a></li>
+                <li><a href="/francia">Francia</a></li>
+                <li><a href="/germania">Germania</a></li>
+                <li><a href="/albania">Albania</a></li>
+                <li><a href="/grecia">Grecia</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero-contact">
+        <h1>Contattaci</h1>
+        <p>Siamo qui per rispondere a tutte le tue domande e aiutarti a pianificare il viaggio perfetto. Non esitare a scriverci o chiamarci!</p>
+    </header>
+
+    <main>
+        <section id="contact-details">
+            <h2>Dettagli di Contatto</h2>
+            <div class="contact-info">
+                <p><strong>Numero di telefono:</strong> <a href="tel:+391234567890">+39 123 4567890</a></p>
+                <p><strong>Email:</strong> <a href="mailto:info@viaggionelsudeuropa.com">info@viaggionelsudeuropa.com</a></p>
+                <p><strong>Indirizzo:</strong> Via dei Viaggi 10, 00100 San Donà di Piave, Italia</p>
+                <p><strong>Orari di apertura:</strong> Lun-Ven: 9:00 - 18:00 | Sab: 9:00 - 13:00</p>
+            </div>
+
+            <div class="social-links">
+                <h3>Seguici sui social:</h3>
+                <a href="https://facebook.com/ViaggioNelSudEuropa" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i>Facebook</a>
+                <a href="https://instagram.com/ViaggioNelSudEuropa" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i>Instagram</a>
+                <a href="https://twitter.com/ViaggioSudEuropa" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i>Twitter</a>
+                <a href="https://linkedin.com/company/ViaggioNelSudEuropa" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i>LinkedIn</a>
+            </div>
+        </section>
+
+        <section id="contact-form-section" class="contact-form">
+            <h2>Invia un Messaggio</h2>
+            <form action="/contact_submit" method="post">
+                <label for="name">Nome:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Messaggio:</label>
+                <textarea id="message" name="message" required></textarea>
+
+                <button type="submit">Invia Messaggio</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Viaggio Nel Sud Europa. Tutti i diritti riservati.</p>
+    </footer>
+
+    <script>
+        // Navbar toggle functionality (copied from your existing JS)
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggler = document.querySelector('.navbar-toggler');
+            const collapse = document.querySelector('.navbar-collapse');
+
+            toggler.addEventListener('click', function() {
+                collapse.classList.toggle('show');
+                toggler.classList.toggle('open');
+            });
+
+            const navLinks = document.querySelectorAll('.navbar-nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 992) {
+                        collapse.classList.remove('show');
+                        toggler.classList.remove('open');
+                    }
+                });
+            });
+        });
+    </script>
+    <script src="https://kit.fontawesome.com/your-font-awesome-kit-code.js" crossorigin="anonymous"></script>
+    </body>
+</html>

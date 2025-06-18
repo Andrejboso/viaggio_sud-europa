@@ -1,2 +1,506 @@
-<h1>Benvenuto in spagnia</h1>
-<a href="/home">torna alla home</a>
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spagna: Viaggio Nel Sud Europa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-dark-blue: #1A2E4E;
+            --secondary-blue: #2A4C7F;
+            --accent-light-blue: #6AABD2;
+            --text-light: #F0F4F8;
+            --text-dark: #333;
+            --grey-background: #EAEFF4;
+            --border-color: #4A6C9B;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            background-color: var(--grey-background);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            background-color: var(--primary-dark-blue);
+            color: var(--text-light);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand a {
+            color: var(--accent-light-blue);
+            text-decoration: none;
+            font-size: 28px;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-brand a:hover {
+            color: var(--text-light);
+        }
+
+        .navbar-nav {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .navbar-nav li {
+            margin-left: 30px;
+        }
+
+        .navbar-nav a {
+            color: var(--accent-light-blue);
+            text-decoration: none;
+            padding: 8px 0;
+            font-size: 17px;
+            font-weight: 600;
+            transition: color 0.3s ease, border-bottom 0.3s ease;
+            position: relative;
+        }
+
+        .navbar-nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--text-light);
+            transition: width 0.3s ease-out;
+        }
+
+        .navbar-nav a:hover {
+            color: var(--text-light);
+        }
+
+        .navbar-nav a:hover::after {
+            width: 100%;
+        }
+
+        .navbar-toggler {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--accent-light-blue);
+            font-size: 28px;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 1000;
+        }
+
+        .navbar-toggler .icon-bar {
+            display: block;
+            width: 30px;
+            height: 3px;
+            background-color: var(--accent-light-blue);
+            margin: 6px 0;
+            transition: all 0.3s ease-in-out;
+            border-radius: 2px;
+        }
+
+        .navbar-toggler.open .icon-bar:nth-child(1) {
+            transform: rotate(-45deg) translate(-6px, 6px);
+        }
+
+        .navbar-toggler.open .icon-bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .navbar-toggler.open .icon-bar:nth-child(3) {
+            transform: rotate(45deg) translate(-6px, -6px);
+        }
+
+        .navbar-collapse {
+            flex-grow: 1;
+            text-align: right;
+        }
+
+        /* Hero Section for Spain Page */
+        .hero-spain {
+            background: linear-gradient(rgba(26, 46, 78, 0.7), rgba(26, 46, 78, 0.7)), url('https://images.unsplash.com/photo-1579737119183-5c249a8d9a2d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
+            color: var(--text-light);
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+        }
+
+        .hero-spain h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 4em;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-spain p {
+            font-size: 1.5em;
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+            font-weight: 300;
+        }
+
+        .hero-button {
+            display: inline-block;
+            background-color: var(--accent-light-blue);
+            color: var(--primary-dark-blue);
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-button:hover {
+            background-color: #82ccdd;
+            transform: translateY(-2px);
+        }
+
+        /* Main Content Styling */
+        main {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            gap: 40px;
+        }
+
+        section {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            border-top: 5px solid var(--secondary-blue);
+        }
+
+        section h2 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--primary-dark-blue);
+            font-size: 2.2em;
+            margin-bottom: 25px;
+            border-bottom: 2px solid var(--accent-light-blue);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        section p {
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        /* Specific styles for Spain page content */
+        .attraction-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .attraction-card {
+            background-color: var(--grey-background);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .attraction-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .attraction-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .attraction-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .attraction-content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .attraction-content h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--primary-dark-blue);
+            font-size: 1.7em;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .attraction-content p {
+            font-size: 0.95em;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .attraction-content a {
+            display: inline-block;
+            color: var(--accent-light-blue);
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            transition: border-bottom 0.3s ease, color 0.3s ease;
+            align-self: flex-start;
+        }
+
+        .attraction-content a:hover {
+            border-bottom: 2px solid var(--accent-light-blue);
+            color: var(--primary-dark-blue);
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: var(--primary-dark-blue);
+            color: var(--text-light);
+            text-align: center;
+            padding: 25px 20px;
+            margin-top: 50px;
+            font-size: 0.9em;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Media Queries */
+        @media (max-width: 992px) {
+            .navbar {
+                flex-wrap: wrap;
+                padding: 15px 20px;
+            }
+
+            .navbar-brand {
+                flex-grow: 1;
+            }
+
+            .navbar-toggler {
+                display: block;
+            }
+
+            .navbar-collapse {
+                width: 100%;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.4s ease-out;
+                background-color: var(--primary-dark-blue);
+                text-align: center;
+                padding: 0;
+            }
+
+            .navbar-collapse.show {
+                max-height: 300px;
+                padding: 10px 0;
+            }
+
+            .navbar-nav {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .navbar-nav li {
+                margin: 15px 0;
+            }
+
+            .navbar-nav a {
+                font-size: 18px;
+                padding: 10px 0;
+                display: block;
+            }
+
+            .navbar-nav a::after {
+                display: none;
+            }
+
+            .hero-spain h1 {
+                font-size: 3em;
+            }
+
+            .hero-spain p {
+                font-size: 1.2em;
+            }
+
+            section {
+                padding: 30px 20px;
+            }
+
+            section h2 {
+                font-size: 1.8em;
+            }
+
+            .attraction-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-spain h1 {
+                font-size: 2.5em;
+            }
+
+            .hero-spain p {
+                font-size: 1em;
+            }
+
+            .navbar-brand a {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <a href="/">Viaggio Nel Sud Europa</a>
+        </div>
+        <button class="navbar-toggler" aria-label="Toggle navigation">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <div class="navbar-collapse">
+            <ul class="navbar-nav">
+                <li><a href="/home">Home</a></li>
+                <li><a href="/about">Chi Siamo</a></li>
+                <li><a href="/contact">Contatti</a></li>
+                <li><a href="/spagnia">Spagna</a></li> <li><a href="/francia">Francia</a></li>
+                <li><a href="/germania">Germania</a></li>
+                <li><a href="/albania">Albania</a></li>
+                <li><a href="/grecia">Grecia</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero-spain">
+        <h1>Scopri la Passione della Spagna</h1>
+        <p>Un viaggio vibrante tra storia millenaria, spiagge dorate, architetture mozzafiato e una cultura inebriante.</p>
+        <a href="#explore-spain" class="hero-button">Inizia la Tua Avventura Spagnola</a>
+    </header>
+
+    <main>
+        <section id="explore-spain">
+            <h2>Benvenuti in Spagna</h2>
+            <p>La Spagna è un paese di contrasti e passioni, dove antiche tradizioni si mescolano con la modernità più audace. Dalle vibranti città d'arte ai villaggi bianchi dell'Andalusia, dalle spiagge della Costa del Sol alle cime dei Pirenei, ogni angolo di questa nazione ti lascerà senza fiato.</p>
+            <p>Preparati a immergerti nella cultura del flamenco, a deliziarti con le tapas, ad ammirare l'architettura gotica e moresca, e a vivere la leggendaria movida spagnola. La Spagna ti aspetta con un'energia contagiosa!</p>
+        </section>
+
+        ---
+
+        <section id="highlights">
+            <h2>Attrazioni Imperdibili</h2>
+            <div class="attraction-grid">
+                <div class="attraction-card">
+                    <img src="https://images.unsplash.com/photo-1539037116277-c010a30b561c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Sagrada Familia, Barcellona">
+                    <div class="attraction-content">
+                        <h3>Barcellona: L'Arte di Gaudí</h3>
+                        <p>Esplora la Sagrada Familia, Parc Güell e il quartiere Gotico. Vivi l'atmosfera unica della capitale catalana.</p>
+                        <a href="#">Scopri Barcellona</a>
+                    </div>
+                </div>
+
+                <div class="attraction-card">
+                    <img src="https://images.unsplash.com/photo-1555577382-7216a695e630?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Palazzo Reale, Madrid">
+                    <div class="attraction-content">
+                        <h3>Madrid: Il Cuore della Spagna</h3>
+                        <p>Visita il Palazzo Reale, il Museo del Prado e Plaza Mayor. Immergiti nell'energia inesauribile della capitale spagnola.</p>
+                        <a href="#">Esplora Madrid</a>
+                    </div>
+                </div>
+
+                <div class="attraction-card">
+                    <img src="https://images.unsplash.com/photo-1547820120-001097e1ae8c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Alhambra, Granada">
+                    <div class="attraction-content">
+                        <h3>Andalusia: Fascino Moresco e Flamenco</h3>
+                        <p>Ammira l'Alhambra di Granada, perdi la testa a Siviglia e scopri le tradizioni del flamenco.</p>
+                        <a href="#">Vivi l'Andalusia</a>
+                    </div>
+                </div>
+
+                <div class="attraction-card">
+                    <img src="https://images.unsplash.com/photo-1579737119183-5c249a8d9a2d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Spiaggia delle Cattedrali, Galizia">
+                    <div class="attraction-content">
+                        <h3>Costa e Isole: Sole e Mare</h3>
+                        <p>Rilassati sulle spiagge delle Baleari o delle Canarie, o scopri le coste selvagge della Galizia.</p>
+                        <a href="#">Scegli la Tua Spiaggia</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        ---
+
+        <section id="cuisine">
+            <h2>Sapori Autentici della Cucina Spagnola</h2>
+            <p>La gastronomia spagnola è un'esplosione di sapori, colori e tradizioni. Ogni regione offre specialità indimenticabili:</p>
+            <ul>
+                <li><strong>Tapas:</strong> La quintessenza della convivialità spagnola, da gustare in ogni città.</li>
+                <li><strong>Paella:</strong> Il piatto simbolo di Valencia, ricco di riso, zafferano e ingredienti freschi.</li>
+                <li><strong>Jamón Serrano e Ibérico:</strong> Prosciutti stagionati, veri e propri capolavori culinari.</li>
+                <li><strong>Tortilla Española:</strong> Una semplice ma deliziosa frittata di patate e uova.</li>
+                <li><strong>Vini:</strong> Dai rossi robusti della Rioja e Ribera del Duero allo Sherry dell'Andalusia.</li>
+                <li><strong>Churros con Cioccolata:</strong> La colazione o merenda dolce per eccellenza.</li>
+            </ul>
+            <p>Un viaggio in Spagna è un'esperienza sensoriale completa, soprattutto per il palato!</p>
+        </section>
+
+        ---
+
+        <section id="plan-your-trip">
+            <h2>Pianifica il Tuo Viaggio in Spagna</h2>
+            <p>Che tu sogni una settimana di relax al mare, un'immersione culturale tra i musei, o un'avventura tra festival e vita notturna, noi possiamo creare l'itinerario spagnolo perfetto per te.</p>
+            <p>Contattaci ora per iniziare a progettare il tuo viaggio da sogno in Spagna!</p>
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="/contact" class="hero-button">Contattaci per la Spagna</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Viaggio Nel Sud Europa. Tutti i diritti riservati.</p>
+    </footer>
+
+    <script>
+        // Navbar toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggler = document.querySelector('.navbar-toggler');
+            const collapse = document.querySelector('.navbar-collapse');
+
+            toggler.addEventListener('click', function() {
+                collapse.classList.toggle('show');
+                toggler.classList.toggle('open');
+            });
+
+            const navLinks = document.querySelectorAll('.navbar-nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 992) {
+                        collapse.classList.remove('show');
+                        toggler.classList.remove('open');
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
