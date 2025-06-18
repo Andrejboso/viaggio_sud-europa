@@ -89,7 +89,7 @@
         }
 
         .navbar-toggler {
-            display: none;
+            display: none; /* Hidden by default, shown via media query */
             background: none;
             border: none;
             color: var(--accent-light-blue);
@@ -352,18 +352,7 @@
             color: var(--primary-dark-blue);
         }
 
-        /* Footer Styling */
-        footer {
-            background-color: var(--primary-dark-blue);
-            color: var(--text-light);
-            text-align: center;
-            padding: 25px 20px;
-            margin-top: 50px;
-            font-size: 0.9em;
-            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Media Query for smaller screens */
+        /* Media Queries */
         @media (max-width: 992px) {
             .navbar {
                 flex-wrap: wrap;
@@ -375,21 +364,21 @@
             }
 
             .navbar-toggler {
-                display: block;
+                display: block; /* Show hamburger icon on smaller screens */
             }
 
             .navbar-collapse {
                 width: 100%;
-                max-height: 0;
+                max-height: 0; /* Hidden by default */
                 overflow: hidden;
-                transition: max-height 0.4s ease-out;
+                transition: max-height 0.4s ease-out; /* Smooth transition */
                 background-color: var(--primary-dark-blue); /* Ensure consistent background */
                 text-align: center; /* Center menu items on mobile */
                 padding: 0; /* Reset padding for collapse */
             }
 
             .navbar-collapse.show {
-                max-height: 300px; /* Adjust as needed */
+                max-height: 300px; /* Adjust as needed to show all links */
                 padding: 10px 0; /* Add padding when open */
             }
 
@@ -464,24 +453,27 @@
                 <li><a href="/home">Home</a></li>
                 <li><a href="/about">Chi Siamo</a></li>
                 <li><a href="/contact">Contatti</a></li>
+                <li><a href="/spagnia">Spagna</a></li>
+                <li><a href="/francia">Francia</a></li>
+                <li><a href="/germania">Germania</a></li>
+                <li><a href="/albania">Albania</a></li>
+                <li><a href="/grecia">Grecia</a></li>
             </ul>
         </div>
     </nav>
 
     <header class="hero-section">
         <h1>Scopri le Meraviglie del Sud Europa</h1>
-        <p>Il tuo partner ideale per esplorare le gemme nascoste e le destinazioni iconiche di Spagna, francia, germania, albania e grecia</p>
+        <p>Il tuo partner ideale per esplorare le gemme nascoste e le destinazioni iconiche di Spagna, Francia, Germania, Albania e Grecia</p>
         <a href="#destinations" class="hero-button">Esplora le Destinazioni</a>
     </header>
 
     <main>
         <section id="introduzione">
             <h2>Benvenuti!</h2>
-            <p>Siamo entusiasti di accompagnarti in un'avventura indimenticabile attraverso i paesaggi mozzafiato, le culture ricche e le tradizioni millenarie del <strong>Sud Europa</strong>. La nostra missione è offrirti esperienze di viaggio uniche e personalizzate, curando ogni dettaglio per rendere la tua esplorazione priva di pensieri.</p>
+            <p>Siamo entusiasti di accompagnarti in un'avventura indimenticabile attraverso i paesaggi mozzafiato, le culture ricche e le tradizioni millenarie del **Sud Europa**. La nostra missione è offrirti esperienze di viaggio uniche e personalizzate, curando ogni dettaglio per rendere la tua esplorazione priva di pensieri.</p>
             <p>Che tu sia alla ricerca di storia antica, spiagge incontaminate, delizie culinarie o vibranti città, "Viaggio Nel Sud Europa" è qui per trasformare i tuoi sogni in realtà. Inizia a pianificare la tua prossima fuga con noi!</p>
         </section>
-
-        ---
 
         <section id="destinations">
             <h2>Le Nostre Destinazioni</h2>
@@ -530,28 +522,22 @@
             </div>
         </section>
 
-        ---
-
         <section id="chi-siamo">
             <h2>Chi Siamo</h2>
-            <p>Siamo un team di <strong>esperti viaggiatori e appassionati di cultura</strong>, dedicati a creare itinerari su misura che vanno oltre le guide turistiche tradizionali. La nostra profonda conoscenza del Sud Europa ci permette di scovare le perle nascoste e di proporti esperienze autentiche, lontane dai percorsi turistici più battuti.</p>
+            <p>Siamo un team di **esperti viaggiatori e appassionati di cultura**, dedicati a creare itinerari su misura che vanno oltre le guide turistiche tradizionali. La nostra profonda conoscenza del Sud Europa ci permette di scovare le perle nascoste e di proporti esperienze autentiche, lontane dai percorsi turistici più battuti.</p>
             <p>La nostra filosofia si basa sulla cura del cliente, sulla sostenibilità e sull'amore per il nostro territorio. Siamo qui per ascoltare le tue esigenze e per costruire insieme a te il viaggio dei tuoi sogni.</p>
         </section>
-
-        ---
 
         <section id="servizi">
             <h2>I Nostri Servizi Esclusivi</h2>
             <ul>
-                <li><strong>Pianificazione Itinerari Personalizzati:</strong> Creiamo percorsi di viaggio unici, basati sui tuoi interessi, budget e tempi.</li>
-                <li><strong>Guide Locali Esperti:</strong> Ti mettiamo in contatto con le migliori guide del posto per un'immersione autentica nella cultura locale.</li>
-                <li><strong>Alloggi Selezionati:</strong> Dalle boutique hotel storici alle ville con vista mozzafiato, scegliamo solo il meglio per il tuo soggiorno.</li>
-                <li><strong>Esperienze Gastronomiche:</strong> Organizziamo tour enogastronomici, lezioni di cucina e degustazioni per deliziare il tuo palato.</li>
-                <li><strong>Supporto H24:</strong> Il nostro team è sempre a tua disposizione per qualsiasi necessità durante il tuo viaggio.</li>
+                <li>**Pianificazione Itinerari Personalizzati:** Creiamo percorsi di viaggio unici, basati sui tuoi interessi, budget e tempi.</li>
+                <li>**Guide Locali Esperti:** Ti mettiamo in contatto con le migliori guide del posto per un'immersione autentica nella cultura locale.</li>
+                <li>**Alloggi Selezionati:** Dalle boutique hotel storici alle ville con vista mozzafiato, scegliamo solo il meglio per il tuo soggiorno.</li>
+                <li>**Esperienze Gastronomiche:** Organizziamo tour enogastronomici, lezioni di cucina e degustazioni per deliziare il tuo palato.</li>
+                <li>**Supporto H24:** Il nostro team è sempre a tua disposizione per qualsiasi necessità durante il tuo viaggio.</li>
             </ul>
         </section>
-
-        ---
 
         <section id="portfolio">
             <h2>Le Nostre Storie di Viaggio</h2>
@@ -570,15 +556,13 @@
             </div>
         </section>
 
-        ---
-
         <section id="contatti">
             <h2>Contattaci</h2>
             <p>Se desideri pianificare il tuo prossimo viaggio nel Sud Europa o hai domande sui nostri servizi, non esitare a contattarci. Siamo qui per ascoltarti e trasformare i tuoi sogni in realtà.</p>
             <address>
-                <strong>Email:</strong> <a href="mailto:info@viaggionelsudeuropa.com">info@viaggionelsudeuropa.com</a><br>
-                <strong>Telefono:</strong> <a href="tel:+391234567890">+39 123 4567890</a><br>
-                <strong>Indirizzo:</strong> Via dei Viaggi 10, 00100 Roma, Italia
+                **Email:** <a href="mailto:info@viaggionelsudeuropa.com">info@viaggionelsudeuropa.com</a><br>
+                **Telefono:** <a href="tel:+391234567890">+39 123 4567890</a><br>
+                **Indirizzo:** Via dei Viaggi 10, 00100 Roma, Italia
             </address>
         </section>
     </main>
