@@ -1,5 +1,9 @@
 class HomeController < ApplicationController
   def index
-    @message = "Welcome to the Home Page"
+  end
+  def spagnia
+  end
+
+  def francia
   end
 end
