@@ -128,7 +128,8 @@
 
         /* Hero Section for Spain Page */
         .hero-spain {
-            background: linear-gradient(rgba(26, 46, 78, 0.7), rgba(26, 46, 78, 0.7)), url('https://images.unsplash.com/photo-1579737119183-5c249a8d9a2d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
+            background: linear-gradient(rgba(26, 46, 78, 0.7), rgba(26, 46, 78, 0.7)), url('https://images.unsplash.com/photo-1555577382-7216a695e630?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
+            background-position: center 30%; /* Adjust background position */
             color: var(--text-light);
             text-align: center;
             padding: 100px 20px;
@@ -271,6 +272,29 @@
             color: var(--primary-dark-blue);
         }
 
+        ul {
+            list-style: none; /* Remove default bullet points */
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        ul li::before {
+            content: '🇪🇸'; /* Spanish flag emoji as bullet point */
+            position: absolute;
+            left: 0;
+            color: var(--accent-light-blue);
+            font-size: 1.2em;
+            line-height: 1.2;
+        }
+
+
         /* Footer Styling */
         footer {
             background-color: var(--primary-dark-blue);
@@ -364,6 +388,9 @@
             .navbar-brand a {
                 font-size: 24px;
             }
+            ul li {
+                font-size: 1em;
+            }
         }
     </style>
 </head>
@@ -393,56 +420,57 @@
     </nav>
 
     <header class="hero-spain">
-        <h1>Scopri la Passione della Spagna</h1>
-        <p>Un viaggio vibrante tra storia millenaria, spiagge dorate, architetture mozzafiato e una cultura inebriante.</p>
+        <h1>Scopri la Passione e la Diversità della Spagna</h1>
+        <p>Un viaggio vibrante tra **storia millenaria**, **spiagge dorate**, **architetture mozzafiato** e una **cultura inebriante** ti aspetta. Lasciati travolgere dall'energia unica di questo paese straordinario!</p>
         <a href="#explore-spain" class="hero-button">Inizia la Tua Avventura Spagnola</a>
     </header>
 
     <main>
         <section id="explore-spain">
-            <h2>Benvenuti in Spagna</h2>
-            <p>La Spagna è un paese di contrasti e passioni, dove antiche tradizioni si mescolano con la modernità più audace. Dalle vibranti città d'arte ai villaggi bianchi dell'Andalusia, dalle spiagge della Costa del Sol alle cime dei Pirenei, ogni angolo di questa nazione ti lascerà senza fiato.</p>
-            <p>Preparati a immergerti nella cultura del flamenco, a deliziarti con le tapas, ad ammirare l'architettura gotica e moresca, e a vivere la leggendaria movida spagnola. La Spagna ti aspetta con un'energia contagiosa!</p>
+            <h2>Benvenuti nel Cuore Vibrante della Spagna</h2>
+            <p>La Spagna è una terra di contrasti affascinanti, dove le **antiche tradizioni** danzano con la **modernità più audace**. Dalle vivaci metropoli d'arte ai suggestivi villaggi bianchi dell'Andalusia, dalle coste baciate dal sole alle cime imponenti dei Pirenei, ogni angolo di questa nazione promette un'esperienza indimenticabile.</p>
+            <p>Preparati a immergerti nella **passione del flamenco**, a deliziarti con un'infinità di **tapas** e a meravigliarti di fronte all'architettura **gotica e moresca**. Dalle feste tradizionali alla leggendaria *movida*, la Spagna ti aspetta con la sua energia contagiosa, pronta a regalarti ricordi che dureranno una vita.</p>
         </section>
 
         ---
 
         <section id="highlights">
-            <h2>Attrazioni Imperdibili</h2>
+            <h2>Attrazioni e Città Imperdibili</h2>
+            <p>Esplora alcune delle gemme più scintillanti che la Spagna ha da offrire:</p>
             <div class="attraction-grid">
                 <div class="attraction-card">
-                    <img src="https://images.unsplash.com/photo-1539037116277-c010a30b561c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Sagrada Familia, Barcellona">
+                    <img src="https://images.unsplash.com/photo-1549488349-166292723c34?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Sagrada Familia e architettura di Gaudi a Barcellona">
                     <div class="attraction-content">
-                        <h3>Barcellona: L'Arte di Gaudí</h3>
-                        <p>Esplora la Sagrada Familia, Parc Güell e il quartiere Gotico. Vivi l'atmosfera unica della capitale catalana.</p>
-                        <a href="#">Scopri Barcellona</a>
+                        <h3>Barcellona: L'Eccentricità di Gaudí</h3>
+                        <p>Lasciati incantare dalla maestosa **Sagrada Familia**, perdi la cognizione del tempo a **Parc Güell** e passeggia tra i vicoli storici del **Barrio Gótico**. Barcellona è un'esplosione di arte, design e vita notturna.</p>
+                        <a href="#">Scopri di più su Barcellona</a>
                     </div>
                 </div>
 
                 <div class="attraction-card">
-                    <img src="https://images.unsplash.com/photo-1555577382-7216a695e630?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Palazzo Reale, Madrid">
+                    <img src="https://images.unsplash.com/photo-1555577382-7216a695e630?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Palazzo Reale e Plaza Mayor di Madrid">
                     <div class="attraction-content">
-                        <h3>Madrid: Il Cuore della Spagna</h3>
-                        <p>Visita il Palazzo Reale, il Museo del Prado e Plaza Mayor. Immergiti nell'energia inesauribile della capitale spagnola.</p>
-                        <a href="#">Esplora Madrid</a>
+                        <h3>Madrid: Il Cuore Pulsante della Nazione</h3>
+                        <p>Visita l'imponente **Palazzo Reale**, ammira capolavori al **Museo del Prado** e vivi l'atmosfera vibrante di **Plaza Mayor**. Madrid ti travolgerà con la sua energia inesauribile e la sua ricca scena culturale.</p>
+                        <a href="#">Esplora la capitale, Madrid</a>
                     </div>
                 </div>
 
                 <div class="attraction-card">
-                    <img src="https://images.unsplash.com/photo-1547820120-001097e1ae8c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Alhambra, Granada">
+                    <img src="https://images.unsplash.com/photo-1547820120-001097e1ae8c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Alhambra di Granada e quartieri di Siviglia, Andalusia">
                     <div class="attraction-content">
-                        <h3>Andalusia: Fascino Moresco e Flamenco</h3>
-                        <p>Ammira l'Alhambra di Granada, perdi la testa a Siviglia e scopri le tradizioni del flamenco.</p>
-                        <a href="#">Vivi l'Andalusia</a>
+                        <h3>Andalusia: Tra Fascino Moresco e Flamenco</h3>
+                        <p>Scopri la magia dell'**Alhambra di Granada**, perditi nelle stradine incantevoli di **Siviglia** con la sua Cattedrale e la Giralda, e lasciati emozionare dalle radici profonde del **flamenco**.</p>
+                        <a href="#">Vivi il Sud della Spagna</a>
                     </div>
                 </div>
 
                 <div class="attraction-card">
-                    <img src="https://images.unsplash.com/photo-1579737119183-5c249a8d9a2d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Spiaggia delle Cattedrali, Galizia">
+                    <img src="https://images.unsplash.com/photo-1598075775701-d8050e502b66?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Spiagge incontaminate delle Isole Baleari o Canarie, Spagna">
                     <div class="attraction-content">
-                        <h3>Costa e Isole: Sole e Mare</h3>
-                        <p>Rilassati sulle spiagge delle Baleari o delle Canarie, o scopri le coste selvagge della Galizia.</p>
-                        <a href="#">Scegli la Tua Spiaggia</a>
+                        <h3>Le Coste e le Isole: Paradisi di Sole e Mare</h3>
+                        <p>Dalle vivaci spiagge della **Costa del Sol** alle calette nascoste delle **Baleari** (Maiorca, Ibiza) e alle paesaggi vulcanici delle **Canarie**, la Spagna offre l'ambiente perfetto per ogni tipo di vacanza balneare.</p>
+                        <a href="#">Trova la tua spiaggia ideale</a>
                     </div>
                 </div>
             </div>
@@ -451,25 +479,25 @@
         ---
 
         <section id="cuisine">
-            <h2>Sapori Autentici della Cucina Spagnola</h2>
-            <p>La gastronomia spagnola è un'esplosione di sapori, colori e tradizioni. Ogni regione offre specialità indimenticabili:</p>
+            <h2>Un Viaggio Culinario: Sapori Autentici della Cucina Spagnola</h2>
+            <p>La gastronomia spagnola è una vera e propria celebrazione dei sensi, un'esplosione di sapori, colori e tradizioni. Ogni regione, ogni città, ogni villaggio offre specialità indimenticabili che delizieranno il tuo palato:</p>
             <ul>
-                <li><strong>Tapas:</strong> La quintessenza della convivialità spagnola, da gustare in ogni città.</li>
-                <li><strong>Paella:</strong> Il piatto simbolo di Valencia, ricco di riso, zafferano e ingredienti freschi.</li>
-                <li><strong>Jamón Serrano e Ibérico:</strong> Prosciutti stagionati, veri e propri capolavori culinari.</li>
-                <li><strong>Tortilla Española:</strong> Una semplice ma deliziosa frittata di patate e uova.</li>
-                <li><strong>Vini:</strong> Dai rossi robusti della Rioja e Ribera del Duero allo Sherry dell'Andalusia.</li>
-                <li><strong>Churros con Cioccolata:</strong> La colazione o merenda dolce per eccellenza.</li>
+                <li><strong>Tapas:</strong> Più che un piatto, un'istituzione sociale. Dalle patatas bravas al pulpo a la gallega, le tapas sono la quintessenza della convivialità spagnola, perfette da condividere.</li>
+                <li><strong>Paella:</strong> Il piatto simbolo di Valencia, un capolavoro di riso, zafferano e ingredienti freschi, che sia di mare, di carne o mista.</li>
+                <li><strong>Jamón Serrano e Ibérico:</strong> Vere e proprie opere d'arte della salumeria spagnola, prosciutti stagionati dal sapore inconfondibile, da assaporare lentamente.</li>
+                <li><strong>Tortilla Española:</strong> Semplice, ma incredibilmente gustosa. Una spessa frittata di patate e uova, spesso arricchita con cipolla, ideale per ogni pasto.</li>
+                <li><strong>Churros con Cioccolata:</strong> La dolce tentazione per eccellenza, bastoncini di pasta fritta da intingere in una densa e calda cioccolata, perfetti per colazione o merenda.</li>
+                <li><strong>Vini Spagnoli:</strong> Dai rossi robusti e complessi della **Rioja** e **Ribera del Duero** ai rinfrescanti bianchi dell'Albariño, senza dimenticare i vini fortificati come lo **Sherry** dell'Andalusia.</li>
             </ul>
-            <p>Un viaggio in Spagna è un'esperienza sensoriale completa, soprattutto per il palato!</p>
+            <p>Preparati a un'esperienza sensoriale completa: un viaggio in Spagna è un'avventura indimenticabile anche per il tuo palato!</p>
         </section>
 
         ---
 
         <section id="plan-your-trip">
-            <h2>Pianifica il Tuo Viaggio in Spagna</h2>
-            <p>Che tu sogni una settimana di relax al mare, un'immersione culturale tra i musei, o un'avventura tra festival e vita notturna, noi possiamo creare l'itinerario spagnolo perfetto per te.</p>
-            <p>Contattaci ora per iniziare a progettare il tuo viaggio da sogno in Spagna!</p>
+            <h2>Pianifica il Tuo Sogno Spagnolo con Noi</h2>
+            <p>Che tu stia sognando una settimana di puro relax sulle spiagge assolate, un'immersione culturale tra i musei di fama mondiale, o un'avventura scatenata tra festival e vita notturna, il nostro team è qui per creare l'itinerario spagnolo perfetto per te. Ogni dettaglio sarà curato per garantirti un'esperienza senza pensieri.</p>
+            <p>Non aspettare oltre! **Contattaci ora** per iniziare a progettare il tuo viaggio da sogno in Spagna. La tua avventura è a portata di click!</p>
             <div style="text-align: center; margin-top: 30px;">
                 <a href="/contact" class="hero-button">Contattaci per la Spagna</a>
             </div>

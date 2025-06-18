@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Albania: Viaggio Nel Sud Europa</title>
+    <title>Albania: Viaggio Nel Cuore dei Balcani</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -128,7 +128,7 @@
 
         /* Hero Section for Albania Page */
         .hero-albania {
-            background: linear-gradient(rgba(26, 46, 78, 0.7), rgba(26, 46, 78, 0.7)), url('https://images.unsplash.com/photo-1546252988-1cf01402c525?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
+            background: linear-gradient(rgba(26, 46, 78, 0.7), rgba(26, 46, 78, 0.7)), url('https://images.unsplash.com/photo-1678174526369-026042171120?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover; /* Immagine più iconica per l'hero */
             color: var(--text-light);
             text-align: center;
             padding: 100px 20px;
@@ -271,6 +271,28 @@
             color: var(--primary-dark-blue);
         }
 
+        ul {
+            list-style: none; /* Remove default bullet points */
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        ul li::before {
+            content: '🇦🇱'; /* Albanian flag emoji as bullet point */
+            position: absolute;
+            left: 0;
+            color: var(--accent-light-blue);
+            font-size: 1.2em;
+            line-height: 1.2;
+        }
+
         /* Footer Styling */
         footer {
             background-color: var(--primary-dark-blue);
@@ -364,6 +386,9 @@
             .navbar-brand a {
                 font-size: 24px;
             }
+            ul li {
+                font-size: 1em; /* Adjust font size for smaller screens */
+            }
         }
     </style>
 </head>
@@ -393,55 +418,56 @@
     </nav>
 
     <header class="hero-albania">
-        <h1>Scopri la Genuina Albania</h1>
-        <p>Un tesoro nascosto dei Balcani, tra coste mozzafiato, montagne aspre e un'antica storia.</p>
+        <h1>Scopri la Genuina Albania: Il Gioiello Nascosto dei Balcani</h1>
+        <p>Un tesoro emergente che incanta con le sue coste mozzafiato, montagne selvagge e una storia millenaria da esplorare.</p>
         <a href="#explore-albania" class="hero-button">Inizia la Tua Avventura Albanese</a>
     </header>
 
     <main>
         <section id="explore-albania">
-            <h2>Benvenuti in Albania</h2>
-            <p>L'Albania è una destinazione emergente che sorprende con la sua bellezza naturale incontaminata e la sua ricca eredità culturale. Dalle spiagge cristalline della Riviera Albanese alle vette imponenti delle Alpi Albanesi, ogni angolo di questo paese offre avventura e scoperta.</p>
-            <p>Preparati a esplorare antiche rovine romane e ottomane, a passeggiare per città storiche dichiarate Patrimonio dell'Umanità UNESCO, a gustare una cucina deliziosa e a incontrare la calorosa ospitalità albanese. L'Albania è pronta a svelarti i suoi segreti!</p>
+            <h2>Benvenuti in Albania: Un Viaggio Tra Natura e Storia</h2>
+            <p>L'Albania è una destinazione emergente che sorprende con la sua **bellezza naturale incontaminata** e la sua **ricca eredità culturale**. Dalle spiagge cristalline della **Riviera Albanese** alle vette imponenti delle **Alpi Albanesi**, ogni angolo di questo paese offre avventura e scoperta autentica.</p>
+            <p>Preparati a esplorare antiche rovine romane e ottomane, a passeggiare per città storiche dichiarate **Patrimonio dell'Umanità UNESCO**, a gustare una cucina deliziosa e a incontrare la **calorosa ospitalità albanese**. L'Albania è pronta a svelarti i suoi segreti e a offrirti un'esperienza di viaggio indimenticabile!</p>
         </section>
 
         ---
 
         <section id="highlights">
-            <h2>Attrazioni Imperdibili</h2>
+            <h2>Attrazioni Imperdibili che Ti Aspettano</h2>
+            <p>Ecco alcune delle gemme che rendono l'Albania una meta così affascinante:</p>
             <div class="attraction-grid">
                 <div class="attraction-card">
-                    <img src="https://images.unsplash.com/photo-1627931393661-825f38a5e8f4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gjirokastër, Albania">
+                    <img src="https://images.unsplash.com/photo-1662998394460-a24ef6e3955d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Città museo di Gjirokastër, Albania">
                     <div class="attraction-content">
-                        <h3>Città Storiche UNESCO</h3>
-                        <p>Visita le affascinanti città di Berat e Gjirokastër, patrimonio UNESCO, con le loro case ottomane uniche e castelli imponenti.</p>
+                        <h3>Città Storiche UNESCO: Berat e Gjirokastër</h3>
+                        <p>Immergiti nella storia visitando le affascinanti città di **Berat**, la "città delle mille finestre", e **Gjirokastër**, la "città di pietra", entrambe patrimonio UNESCO con le loro case ottomane uniche e castelli imponenti che dominano il paesaggio.</p>
                         <a href="#">Esplora la Storia Albanese</a>
                     </div>
                 </div>
 
                 <div class="attraction-card">
-                    <img src="https://images.unsplash.com/photo-1546252988-1cf01402c525?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Spiaggia di Ksamil, Albania">
+                    <img src="https://images.unsplash.com/photo-1629810816999-566b6c06a382?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Spiaggia di Ksamil e isole, Albania">
                     <div class="attraction-content">
-                        <h3>La Riviera Albanese</h3>
-                        <p>Rilassati sulle spiagge paradisiache di Ksamil, Dhermi o Himara, bagnate dalle acque cristalline del Mar Ionio.</p>
+                        <h3>La Riviera Albanese: Paradiso Costiero</h3>
+                        <p>Rilassati sulle **spiagge paradisiache** di Ksamil, Dhermi o Himara, bagnate dalle acque cristalline e turchesi del **Mar Ionio**. Un litorale incontaminato, calette nascoste e tramonti mozzafiato ti aspettano.</p>
                         <a href="#">Scopri le Spiagge</a>
                     </div>
                 </div>
 
                 <div class="attraction-card">
-                    <img src="https://images.unsplash.com/photo-1624647384617-1f4865e902b4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Occhio Blu, Albania">
+                    <img src="https://images.unsplash.com/photo-1624647384617-1f4865e902b4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Occhio Blu (Syri i Kaltër), Albania">
                     <div class="attraction-content">
-                        <h3>Natura Incontaminata</h3>
-                        <p>Ammira la sorgente dell'Occhio Blu (Syri i Kaltër), esplora il Parco Nazionale di Theth o naviga sul Lago di Koman.</p>
+                        <h3>Natura Incontaminata: Montagne e Meraviglie Naturali</h3>
+                        <p>Lasciati incantare dalla magia della sorgente dell'**Occhio Blu (Syri i Kaltër)**, un fenomeno naturale spettacolare. Esplora il selvaggio **Parco Nazionale di Theth** nelle Alpi Albanesi o goditi una suggestiva navigazione sul **Lago di Koman**.</p>
                         <a href="#">Vivi l'Avventura Naturale</a>
                     </div>
                 </div>
 
                 <div class="attraction-card">
-                    <img src="https://images.unsplash.com/photo-1625902409545-21d39b83b3e6?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Tirana, Albania">
+                    <img src="https://images.unsplash.com/photo-1647895085449-74e2d3122c4f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Piazza Skanderbeg e Museo Storico Nazionale, Tirana">
                     <div class="attraction-content">
-                        <h3>Tirana: La Capitale Vivace</h3>
-                        <p>Esplora la dinamica capitale albanese con la sua colorata architettura, i musei e una vivace vita notturna.</p>
+                        <h3>Tirana: La Capitale Colorata e Dinamica</h3>
+                        <p>Esplora la vibrante e dinamica capitale albanese, **Tirana**, con la sua architettura colorata, i moderni musei che raccontano la sua storia recente e una vivace vita notturna. Scopri Piazza Skanderbeg e il Blloku, un tempo quartiere proibito.</p>
                         <a href="#">Visita Tirana</a>
                     </div>
                 </div>
@@ -451,25 +477,25 @@
         ---
 
         <section id="cuisine">
-            <h2>Sapori Autentici della Cucina Albanese</h2>
-            <p>La cucina albanese è un delizioso mix di influenze balcaniche, mediterranee e ottomane, caratterizzata da ingredienti freschi e sapori genuini:</p>
+            <h2>Sapori Autentici della Cucina Albanese: Un Viaggio nel Gusto</h2>
+            <p>La cucina albanese è un delizioso mix di **influenze balcaniche, mediterranee e ottomane**, caratterizzata da ingredienti freschi, sapori genuini e piatti che raccontano storie di tradizioni millenarie:</p>
             <ul>
-                <li><strong>Tavë Kosi:</strong> Agnello al forno con yogurt e riso, un piatto nazionale da provare.</li>
-                <li><strong>Byrek:</strong> Saporita torta salata ripiena di carne, formaggio o spinaci.</li>
-                <li><strong>Fërgesë:</strong> Stufato cremoso a base di peperoni, pomodori, ricotta e spezie.</li>
-                <li><strong>Qofte:</strong> Polpette di carne, spesso servite con salsa yogurt.</li>
-                <li><strong>Pesce Fresco:</strong> Sulle coste, non perdere l'occasione di gustare pesce e frutti di mare appena pescati.</li>
-                <li><strong>Raki:</strong> La tradizionale grappa locale, spesso offerta come segno di benvenuto.</li>
+                <li>🇦🇱 <strong>Tavë Kosi:</strong> Un imperdibile piatto nazionale a base di agnello al forno con yogurt e riso, cremoso e saporito.</li>
+                <li>🇦🇱 <strong>Byrek:</strong> La saporita torta salata in sfoglia, disponibile con ripieni vari come carne, formaggio fresco o spinaci. Perfetta per uno spuntino veloce o un pranzo sostanzioso.</li>
+                <li>🇦🇱 <strong>Fërgesë:</strong> Un ricco stufato cremoso tipico di Tirana, a base di peperoni, pomodori, ricotta e spezie, ideale da gustare con pane fresco.</li>
+                <li>🇦🇱 <strong>Qofte:</strong> Deliziose polpette di carne, spesso servite con salsa yogurt o insalata, un classico della cucina casalinga.</li>
+                <li>🇦🇱 <strong>Pesce Fresco:</strong> Sulle coste, non perdere l'occasione di gustare pesce e frutti di mare appena pescati, preparati con semplicità per esaltarne la freschezza.</li>
+                <li>🇦🇱 <strong>Raki:</strong> La tradizionale grappa locale, prodotta da diverse varietà di frutta, spesso offerta come segno di benvenuto e ospitalità.</li>
             </ul>
-            <p>Un viaggio in Albania è anche un'esplorazione culinaria che ti conquisterà!</p>
+            <p>Un viaggio in Albania è anche un'esplorazione culinaria che ti conquisterà con la sua autenticità e i suoi sapori inaspettati!</p>
         </section>
 
         ---
 
         <section id="plan-your-trip">
-            <h2>Pianifica il Tuo Viaggio in Albania</h2>
-            <p>Che tu desideri un'avventura sulle montagne, un relax sulle spiagge idilliache o un'immersione nella storia, possiamo aiutarti a creare l'itinerario perfetto per la tua esplorazione dell'Albania.</p>
-            <p>Contattaci ora per iniziare a progettare il tuo viaggio da sogno in Albania!</p>
+            <h2>Pianifica il Tuo Viaggio da Sogno in Albania</h2>
+            <p>Che tu desideri un'avventura emozionante sulle maestose montagne, un relax totale sulle spiagge idilliache o un'immersione profonda nella storia e cultura albanese, siamo qui per aiutarti.</p>
+            <p>Il nostro team esperto può creare l'**itinerario perfetto su misura per te**, garantendoti un'esperienza autentica e senza pensieri in Albania. **Contattaci ora** per iniziare a progettare il tuo viaggio indimenticabile!</p>
             <div style="text-align: center; margin-top: 30px;">
                 <a href="/contact" class="hero-button">Contattaci per l'Albania</a>
             </div>

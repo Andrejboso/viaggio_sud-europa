@@ -128,7 +128,10 @@
 
         /* Hero Section for Germany Page */
         .hero-germany {
-            background: linear-gradient(rgba(26, 46, 78, 0.7), rgba(26, 46, 78, 0.7)), url('https://images.unsplash.com/photo-1510414842594-e615586c6a78?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
+            background: linear-gradient(rgba(26, 46, 78, 0.7), rgba(26, 46, 78, 0.7)), url('https://images.unsplash.com/photo-1549144503-34e87000d235?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
+            /* Nuova immagine di sfondo più evocativa */
+            background-image: linear-gradient(rgba(26, 46, 78, 0.7), rgba(26, 46, 78, 0.7)), url('https://images.unsplash.com/photo-1579294247291-dd41c0e35384?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-position: center 50%; /* Regola il posizionamento per una migliore visuale */
             color: var(--text-light);
             text-align: center;
             padding: 100px 20px;
@@ -271,6 +274,28 @@
             color: var(--primary-dark-blue);
         }
 
+        ul {
+            list-style: none; /* Remove default bullet points */
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        ul li::before {
+            content: '🇩🇪'; /* German flag emoji as bullet point */
+            position: absolute;
+            left: 0;
+            color: var(--accent-light-blue);
+            font-size: 1.2em;
+            line-height: 1.2;
+        }
+
         /* Footer Styling */
         footer {
             background-color: var(--primary-dark-blue);
@@ -364,6 +389,9 @@
             .navbar-brand a {
                 font-size: 24px;
             }
+            ul li {
+                font-size: 1em; /* Adjust font size for smaller screens */
+            }
         }
     </style>
 </head>
@@ -393,28 +421,29 @@
     </nav>
 
     <header class="hero-germany">
-        <h1>Benvenuti in Germania: Tradizione e Innovazione</h1>
-        <p>Un viaggio attraverso paesaggi mozzafiato, città storiche, castelli fiabeschi e una cultura vibrante.</p>
+        <h1>Benvenuti in Germania: Dove Storia e Futuro si Incontrano</h1>
+        <p>Un viaggio affascinante attraverso paesaggi incantevoli, città vibranti, castelli da fiaba e una cultura ricca di tradizione e innovazione.</p>
         <a href="#explore-germany" class="hero-button">Inizia la Tua Avventura Tedesca</a>
     </header>
 
     <main>
         <section id="explore-germany">
-            <h2>Esplora la Germania</h2>
-            <p>La Germania è una terra di incredibile diversità, dove l'antica storia si fonde con una moderna e dinamica innovazione. Dalle maestose cime delle Alpi Bavaresi alle coste settentrionali del Mar Baltico, dalle foreste incantate ai vivaci centri urbani, ogni regione offre un'esperienza unica e indimenticabile.</p>
-            <p>Preparati a scoprire i castelli da fiaba, a immergerti nella ricca storia di città come Berlino e Monaco, a goderti le birrerie tradizionali e a esplorare una natura incontaminata. La Germania ti aspetta con un mix perfetto di cultura, natura e avventura!</p>
+            <h2>Esplora la Germania: Un Paese dalle Mille Facce</h2>
+            <p>La Germania è una terra di incredibile diversità, dove l'antica storia si fonde armoniosamente con una **moderna e dinamica innovazione**. Dalle maestose cime delle **Alpi Bavaresi** alle ventose coste settentrionali del **Mar Baltico**, dalle misteriose **foreste incantate** della Baviera ai vivaci centri urbani, ogni regione offre un'esperienza unica e indimenticabile.</p>
+            <p>Preparati a scoprire i **castelli da fiaba** che sembrano usciti da un sogno, a immergerti nella ricca storia di città emblematiche come **Berlino** e **Monaco**, a brindare nelle tradizionali birrerie e a esplorare una **natura incontaminata** e sorprendente. La Germania ti aspetta con un mix perfetto di cultura, avventura e un'ospitalità calorosa!</p>
         </section>
 
         ---
 
         <section id="highlights">
-            <h2>Attrazioni Imperdibili</h2>
+            <h2>Destinazioni e Attrazioni Imperdibili</h2>
+            <p>Lasciati ispirare da alcune delle meraviglie che rendono la Germania una meta di viaggio così affascinante:</p>
             <div class="attraction-grid">
                 <div class="attraction-card">
-                    <img src="https://images.unsplash.com/photo-1621255855018-b0a701a24d27?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Porta di Brandeburgo, Berlino">
+                    <img src="https://images.unsplash.com/photo-1596541176212-e567a5449ed1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Porta di Brandeburgo al tramonto, Berlino">
                     <div class="attraction-content">
-                        <h3>Berlino: Storia e Modernità</h3>
-                        <p>Visita la Porta di Brandeburgo, il Reichstag e i musei di fama mondiale. Scopri l'energia unica della capitale tedesca.</p>
+                        <h3>Berlino: Il Cuore Pulsante della Germania</h3>
+                        <p>Vivi l'energia unica di **Berlino**, una città che ha saputo reinventarsi. Visita l'iconica **Porta di Brandeburgo**, l'imponente **Reichstag** e perditi tra i musei di fama mondiale. Scopri la sua storia complessa e la sua vibrante scena artistica e culturale.</p>
                         <a href="#">Scopri Berlino</a>
                     </div>
                 </div>
@@ -422,26 +451,26 @@
                 <div class="attraction-card">
                     <img src="https://images.unsplash.com/photo-1559986326-88cf1e5080b0?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Castello di Neuschwanstein, Baviera">
                     <div class="attraction-content">
-                        <h3>Baviera: Castelli e Montagne</h3>
-                        <p>Ammira il fiabesco Castello di Neuschwanstein, esplora le Alpi Bavaresi e immergiti nella cultura di Monaco.</p>
+                        <h3>Baviera: Fiabe, Montagne e Tradizioni</h3>
+                        <p>Ammira il fiabesco **Castello di Neuschwanstein**, che ispirò Disney. Esplora le maestose **Alpi Bavaresi** con i loro panorami mozzafiato e immergiti nella ricca cultura e nelle tradizioni bavaresi nella vivace città di **Monaco di Baviera**.</p>
                         <a href="#">Esplora la Baviera</a>
                     </div>
                 </div>
 
                 <div class="attraction-card">
-                    <img src="https://images.unsplash.com/photo-1596700777598-63640b3c431d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Duomo di Colonia">
+                    <img src="https://images.unsplash.com/photo-1596700777598-63640b3c431d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Duomo di Colonia con il ponte Hohenzollern">
                     <div class="attraction-content">
-                        <h3>Città storiche e valli fluviali</h3>
-                        <p>Visita il Duomo di Colonia, naviga lungo il Reno e scopri l'incanto di città come Amburgo e Dresda.</p>
+                        <h3>Città Storiche e Valli Fluviali Incantevoli</h3>
+                        <p>Lasciati incantare dal gotico **Duomo di Colonia**, naviga lungo il pittoresco fiume **Reno** costellato di castelli e vigneti, o scopri il fascino unico di città storiche come la portuale **Amburgo** e la barocca **Dresda**.</p>
                         <a href="#">Vivi la Germania Storica</a>
                     </div>
                 </div>
 
                 <div class="attraction-card">
-                    <img src="https://images.unsplash.com/photo-1550519395-fc7176472288?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Foresta Nera">
+                    <img src="https://images.unsplash.com/photo-1550519395-fc7176472288?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Foresta Nera con case tradizionali">
                     <div class="attraction-content">
-                        <h3>Natura e Avventura</h3>
-                        <p>Esplora la suggestiva Foresta Nera, le Dolomiti tedesche o le spiagge del Mar Baltico per un'esperienza all'aperto.</p>
+                        <h3>Natura Incontaminata e Avventure all'Aperto</h3>
+                        <p>Per gli amanti della natura, la Germania offre paradisi come la suggestiva **Foresta Nera**, ideale per escursioni e relax, o le splendide coste del **Mar Baltico** con le loro spiagge. Un'esperienza all'aperto ti attende in ogni angolo del paese.</p>
                         <a href="#">Scegli la Tua Avventura</a>
                     </div>
                 </div>
@@ -451,25 +480,25 @@
         ---
 
         <section id="innovation-culture">
-            <h2>Innovazioni e Cultura Moderna</h2>
-            <p>La Germania è una nazione che guarda al futuro, leader in innovazione e con una vivace scena culturale contemporanea:</p>
+            <h2>Innovazione, Cultura Moderna e Festività</h2>
+            <p>La Germania è una nazione che guarda al futuro con un occhio attento alla sostenibilità e una **vivace scena culturale contemporanea**:</p>
             <ul>
-                <li><strong>Design e Architettura:</strong> Ammira l'architettura moderna di città come Amburgo con la Elbphilharmonie o le innovative soluzioni urbane di Berlino.</li>
-                <li><strong>Scienza e Tecnologia:</strong> Scopri i musei scientifici interattivi e i centri di ricerca che testimoniano l'eccellenza tedesca in settori all'avanguardia.</li>
-                <li><strong>Arte e Musica:</strong> Esplora gallerie d'arte contemporanea, partecipa a festival musicali di ogni genere e vivi la ricca scena culturale underground.</li>
-                <li><strong>Mobilità Sostenibile:</strong> Osserva da vicino le soluzioni innovative per il trasporto e l'energia, che rendono la Germania un modello di sostenibilità.</li>
-                <li><strong>Fiera del Libro di Francoforte:</strong> Se sei appassionato di letteratura, non perdere uno degli eventi editoriali più importanti al mondo.</li>
-                <li><strong>Eventi e Festival:</strong> Oltre all'Oktoberfest, la Germania ospita innumerevoli festival di musica, arte e cinema che attirano visitatori da tutto il mondo.</li>
+                <li>🇩🇪 <strong>Design e Architettura:</strong> Ammira l'architettura all'avanguardia di città come Amburgo con la sua spettacolare **Elbphilharmonie**, o le innovative soluzioni urbane e i quartieri creativi di Berlino.</li>
+                <li>🇩🇪 <strong>Scienza e Tecnologia:</strong> Scopri i numerosi musei scientifici interattivi e i centri di ricerca che testimoniano l'eccellenza tedesca in settori all'avanguardia come l'ingegneria e la tecnologia automobilistica.</li>
+                <li>🇩🇪 <strong>Arte e Musica:</strong> Esplora gallerie d'arte contemporanea uniche, partecipa a festival musicali di ogni genere (dal rock alla musica elettronica) e vivi la ricca scena culturale underground delle sue metropoli.</li>
+                <li>🇩🇪 <strong>Mobilità Sostenibile:</strong> Osserva da vicino le soluzioni innovative per il trasporto pubblico e l'energia verde, che rendono la Germania un modello riconosciuto a livello globale per la sostenibilità.</li>
+                <li>🇩🇪 <strong>Fiera del Libro di Francoforte:</strong> Se sei appassionato di letteratura, non perdere uno degli eventi editoriali più importanti al mondo, punto di incontro per autori ed editori internazionali.</li>
+                <li>🇩🇪 <strong>Eventi e Festival Tradizionali:</strong> Oltre al celeberrimo **Oktoberfest** a Monaco, la Germania ospita innumerevoli festival tradizionali, mercatini di Natale incantati e celebrazioni locali che attirano visitatori da tutto il mondo.</li>
             </ul>
-            <p>Un viaggio in Germania è anche un'opportunità per toccare con mano l'avanguardia e la creatività del cuore dell'Europa.</p>
+            <p>Un viaggio in Germania è anche un'opportunità per toccare con mano l'avanguardia, la creatività e la vivacità del cuore dell'Europa.</p>
         </section>
 
         ---
 
         <section id="plan-your-trip">
-            <h2>Pianifica il Tuo Viaggio in Germania</h2>
-            <p>Sia che tu desideri esplorare città vivaci, immergerti nella natura, o scoprire la storia e le tradizioni, possiamo creare l'itinerario tedesco perfetto per te.</p>
-            <p>Contattaci ora per iniziare a progettare il tuo viaggio da sogno in Germania!</p>
+            <h2>Pianifica il Tuo Indimenticabile Viaggio in Germania</h2>
+            <p>Sia che tu desideri esplorare città vivaci e ricche di storia, immergerti nella natura incontaminata delle sue foreste e montagne, o scoprire le tradizioni più autentiche e l'innovazione che la caratterizzano, il nostro team è pronto a creare l'**itinerario tedesco perfetto per te**.</p>
+            <p>Non aspettare oltre! **Contattaci ora** per una consulenza personalizzata e inizia a progettare il tuo viaggio da sogno nella affascinante Germania!</p>
             <div style="text-align: center; margin-top: 30px;">
                 <a href="/contact" class="hero-button">Contattaci per la Germania</a>
             </div>

@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contatti: Viaggio Nel Sud Europa</title>
+    <title>Contatti - Viaggio Nel Sud Europa</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/YOUR-FONT-AWESOME-KIT-CODE.js" crossorigin="anonymous"></script>
     <style>
         :root {
             --primary-dark-blue: #1A2E4E;
@@ -26,7 +27,7 @@
             line-height: 1.6;
         }
 
-        /* Navbar Styling (copied for consistency) */
+        /* Navbar Styling */
         .navbar {
             background-color: var(--primary-dark-blue);
             color: var(--text-light);
@@ -211,28 +212,37 @@
             color: var(--accent-light-blue);
         }
 
-        .contact-info i { /* For FontAwesome icons if you add them */
+        .contact-info i { /* For FontAwesome icons */
             color: var(--accent-light-blue);
-            margin-right: 8px;
-            font-size: 1.2em;
+            margin-right: 10px;
+            font-size: 1.3em; /* Slightly larger icons */
+            width: 25px; /* Fixed width to align text */
+            text-align: center;
         }
 
         .social-links {
-            margin-top: 20px;
+            margin-top: 40px; /* More space for social links */
             text-align: center;
+        }
+
+        .social-links h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--primary-dark-blue);
+            font-size: 1.5em;
+            margin-bottom: 20px;
         }
 
         .social-links a {
             display: inline-block;
-            margin: 0 10px;
-            font-size: 2em; /* For social media icons */
+            margin: 0 12px; /* Increased margin for social icons */
+            font-size: 2.2em; /* Larger social media icons */
             color: var(--secondary-blue);
             transition: color 0.3s ease, transform 0.2s ease;
         }
 
         .social-links a:hover {
             color: var(--accent-light-blue);
-            transform: translateY(-3px);
+            transform: translateY(-5px); /* More pronounced hover effect */
         }
 
         /* Contact Form Styles */
@@ -259,7 +269,7 @@
             font-family: 'Open Sans', sans-serif;
             font-size: 1em;
             background-color: var(--form-field-background);
-            box-sizing: border-box; /* Include padding in element's total width and height */
+            box-sizing: border-box;
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
@@ -267,12 +277,12 @@
         .contact-form input[type="email"]:focus,
         .contact-form textarea:focus {
             border-color: var(--accent-light-blue);
-            box-shadow: 0 0 0 3px rgba(106, 171, 210, 0.2); /* Light blue glow */
+            box-shadow: 0 0 0 3px rgba(106, 171, 210, 0.2);
             outline: none;
         }
 
         .contact-form textarea {
-            resize: vertical; /* Allow vertical resizing */
+            resize: vertical;
             min-height: 120px;
         }
 
@@ -288,8 +298,8 @@
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            width: fit-content; /* Adjust button width to content */
-            margin-top: 10px; /* Space above button */
+            width: fit-content;
+            margin-top: 10px;
         }
 
         .contact-form button[type="submit"]:hover {
@@ -298,22 +308,7 @@
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
         }
 
-        .back-to-home {
-            display: inline-block;
-            margin-top: 30px;
-            color: var(--accent-light-blue);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1em;
-            transition: color 0.3s ease, transform 0.2s ease;
-        }
-
-        .back-to-home:hover {
-            color: var(--primary-dark-blue);
-            transform: translateX(5px);
-        }
-
-        /* Footer Styling (copied for consistency) */
+        /* Footer Styling */
         footer {
             background-color: var(--primary-dark-blue);
             color: var(--text-light);
@@ -324,21 +319,18 @@
             box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
         }
 
-        /* Media Queries (copied and adapted) */
+        /* Media Queries */
         @media (max-width: 992px) {
             .navbar {
                 flex-wrap: wrap;
                 padding: 15px 20px;
             }
-
             .navbar-brand {
                 flex-grow: 1;
             }
-
             .navbar-toggler {
                 display: block;
             }
-
             .navbar-collapse {
                 width: 100%;
                 max-height: 0;
@@ -348,45 +340,43 @@
                 text-align: center;
                 padding: 0;
             }
-
             .navbar-collapse.show {
                 max-height: 300px;
                 padding: 10px 0;
             }
-
             .navbar-nav {
                 flex-direction: column;
                 width: 100%;
             }
-
             .navbar-nav li {
                 margin: 15px 0;
             }
-
             .navbar-nav a {
                 font-size: 18px;
                 padding: 10px 0;
                 display: block;
             }
-
             .navbar-nav a::after {
                 display: none;
             }
-
             .hero-contact h1 {
                 font-size: 3em;
             }
-
             .hero-contact p {
                 font-size: 1.2em;
             }
-
             section {
                 padding: 30px 20px;
             }
-
             section h2 {
                 font-size: 1.8em;
+            }
+            .social-links a {
+                font-size: 2em;
+                margin: 0 8px;
+            }
+            .contact-info i {
+                font-size: 1.1em;
             }
         }
 
@@ -394,21 +384,24 @@
             .hero-contact h1 {
                 font-size: 2.5em;
             }
-
             .hero-contact p {
                 font-size: 1em;
             }
-
             .navbar-brand a {
                 font-size: 24px;
             }
-
             .contact-info p {
                 font-size: 1em;
             }
-
+            .social-links h3 {
+                font-size: 1.3em;
+            }
             .social-links a {
                 font-size: 1.8em;
+            }
+            .contact-form button[type="submit"] {
+                font-size: 1em;
+                padding: 12px 20px;
             }
         }
     </style>
@@ -439,42 +432,47 @@
     </nav>
 
     <header class="hero-contact">
-        <h1>Contattaci</h1>
-        <p>Siamo qui per rispondere a tutte le tue domande e aiutarti a pianificare il viaggio perfetto. Non esitare a scriverci o chiamarci!</p>
+        <h1>Mettiti in Contatto con Noi</h1>
+        <p>Hai domande, richieste speciali o vuoi semplicemente iniziare a pianificare la tua prossima avventura? Siamo qui per te!</p>
     </header>
 
     <main>
         <section id="contact-details">
             <h2>Dettagli di Contatto</h2>
+            <p>Siamo a tua disposizione per qualsiasi informazione o supporto. Puoi trovarci qui:</p>
             <div class="contact-info">
-                <p><strong>Numero di telefono:</strong> <a href="tel:+391234567890">+39 123 4567890</a></p>
-                <p><strong>Email:</strong> <a href="mailto:info@viaggionelsudeuropa.com">info@viaggionelsudeuropa.com</a></p>
-                <p><strong>Indirizzo:</strong> Via dei Viaggi 10, 00100 San Donà di Piave, Italia</p>
-                <p><strong>Orari di apertura:</strong> Lun-Ven: 9:00 - 18:00 | Sab: 9:00 - 13:00</p>
+                <p><i class="fas fa-phone-alt"></i> <strong>Telefono:</strong> <a href="tel:+391234567890">+39 123 4567890</a></p>
+                <p><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:info@viaggionelsudeuropa.com">info@viaggionelsudeuropa.com</a></p>
+                <p><i class="fas fa-map-marker-alt"></i> <strong>Indirizzo:</strong> <a href="https://www.google.com/maps/search/Via+dei+Viaggi+10,+00100+San+Don%C3%A0+di+Piave,+Italia" target="_blank" rel="noopener noreferrer">Via dei Viaggi 10, 30027 San Donà di Piave, VE, Italia</a></p>
+                <p><i class="fas fa-clock"></i> <strong>Orari di Apertura:</strong> Lun-Ven: 9:00 - 18:00 | Sab: 9:00 - 13:00</p>
             </div>
 
             <div class="social-links">
-                <h3>Seguici sui social:</h3>
-                <a href="https://facebook.com/ViaggioNelSudEuropa" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i>Facebook</a>
-                <a href="https://instagram.com/ViaggioNelSudEuropa" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i>Instagram</a>
-                <a href="https://twitter.com/ViaggioSudEuropa" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i>Twitter</a>
-                <a href="https://linkedin.com/company/ViaggioNelSudEuropa" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i>LinkedIn</a>
+                <h3>Seguici per Ispirazioni di Viaggio:</h3>
+                <a href="https://facebook.com/ViaggioNelSudEuropa" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://instagram.com/ViaggioNelSudEuropa" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://twitter.com/ViaggioSudEuropa" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://linkedin.com/company/ViaggioNelSudEuropa" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
             </div>
         </section>
 
         <section id="contact-form-section" class="contact-form">
-            <h2>Invia un Messaggio</h2>
+            <h2>Inviaci un Messaggio Diretto</h2>
+            <p>Compila il modulo qui sotto e ti risponderemo il prima possibile. Siamo pronti ad ascoltare le tue esigenze!</p>
             <form action="/contact_submit" method="post">
-                <label for="name">Nome:</label>
-                <input type="text" id="name" name="name" required>
+                <label for="name">Nome Completo:</label>
+                <input type="text" id="name" name="name" required placeholder="Inserisci il tuo nome">
 
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+                <label for="email">Indirizzo Email:</label>
+                <input type="email" id="email" name="email" required placeholder="La tua migliore email">
 
-                <label for="message">Messaggio:</label>
-                <textarea id="message" name="message" required></textarea>
+                <label for="subject">Oggetto:</label>
+                <input type="text" id="subject" name="subject" placeholder="Es: Richiesta informazioni viaggio">
 
-                <button type="submit">Invia Messaggio</button>
+                <label for="message">Il tuo Messaggio:</label>
+                <textarea id="message" name="message" required placeholder="Descrivi il tuo sogno di viaggio o la tua domanda..."></textarea>
+
+                <button type="submit">Invia la Richiesta</button>
             </form>
         </section>
     </main>
@@ -484,7 +482,7 @@
     </footer>
 
     <script>
-        // Navbar toggle functionality (copied from your existing JS)
+        // Navbar toggle functionality
         document.addEventListener('DOMContentLoaded', function() {
             const toggler = document.querySelector('.navbar-toggler');
             const collapse = document.querySelector('.navbar-collapse');
@@ -505,6 +503,5 @@
             });
         });
     </script>
-    <script src="https://kit.fontawesome.com/your-font-awesome-kit-code.js" crossorigin="anonymous"></script>
-    </body>
+</body>
 </html>

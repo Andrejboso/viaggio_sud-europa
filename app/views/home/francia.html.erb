@@ -24,7 +24,7 @@
             line-height: 1.6;
         }
 
-        /* Navbar Styling (copied from your existing CSS) */
+        /* Navbar Styling */
         .navbar {
             background-color: var(--primary-dark-blue);
             color: var(--text-light);
@@ -128,7 +128,8 @@
 
         /* Hero Section for France Page */
         .hero-france {
-            background: linear-gradient(rgba(26, 46, 78, 0.7), rgba(26, 46, 78, 0.7)), url('https://images.unsplash.com/photo-1549144503-34e87000d235?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
+            background: linear-gradient(rgba(26, 46, 78, 0.7), rgba(26, 46, 78, 0.7)), url('https://images.unsplash.com/photo-1511739001472-bd0757a66f07?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
+            background-position: center 60%; /* Adjusted for a better visual */
             color: var(--text-light);
             text-align: center;
             padding: 100px 20px;
@@ -168,7 +169,7 @@
             transform: translateY(-2px);
         }
 
-        /* Main Content Styling (copied and slightly adapted) */
+        /* Main Content Styling */
         main {
             max-width: 1200px;
             margin: 40px auto;
@@ -263,7 +264,7 @@
             text-decoration: none;
             border-bottom: 2px solid transparent;
             transition: border-bottom 0.3s ease, color 0.3s ease;
-            align-self: flex-start; /* Aligns the link to the start */
+            align-self: flex-start;
         }
 
         .attraction-content a:hover {
@@ -271,8 +272,29 @@
             color: var(--primary-dark-blue);
         }
 
+        ul {
+            list-style: none; /* Remove default bullet points */
+            padding: 0;
+            margin: 20px 0;
+        }
 
-        /* Footer Styling (copied from your existing CSS) */
+        ul li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        ul li::before {
+            content: '🇫🇷'; /* French flag emoji as bullet point */
+            position: absolute;
+            left: 0;
+            color: var(--accent-light-blue); /* This might not apply to emoji, but good practice */
+            font-size: 1.2em;
+            line-height: 1.2;
+        }
+
+        /* Footer Styling */
         footer {
             background-color: var(--primary-dark-blue);
             color: var(--text-light);
@@ -283,7 +305,7 @@
             box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
         }
 
-        /* Media Queries (copied and adapted) */
+        /* Media Queries */
         @media (max-width: 992px) {
             .navbar {
                 flex-wrap: wrap;
@@ -365,6 +387,9 @@
             .navbar-brand a {
                 font-size: 24px;
             }
+            ul li {
+                font-size: 1em; /* Adjust font size for smaller screens */
+            }
         }
     </style>
 </head>
@@ -385,7 +410,8 @@
                 <li><a href="/about">Chi Siamo</a></li>
                 <li><a href="/contact">Contatti</a></li>
                 <li><a href="/spagnia">Spagna</a></li>
-                <li><a href="/francia">Francia</a></li> <li><a href="/germania">Germania</a></li>
+                <li><a href="/francia">Francia</a></li>
+                <li><a href="/germania">Germania</a></li>
                 <li><a href="/albania">Albania</a></li>
                 <li><a href="/grecia">Grecia</a></li>
             </ul>
@@ -393,56 +419,57 @@
     </nav>
 
     <header class="hero-france">
-        <h1>Scopri l'Incanto della Francia</h1>
-        <p>Dalle luci di Parigi alle coste baciate dal sole, un viaggio tra arte, storia, gastronomia e paesaggi da sogno.</p>
-        <a href="#explore-france" class="hero-button">Inizia la Tua Esplorazione</a>
+        <h1>Scopri l'Incanto Senza Tempo della Francia</h1>
+        <p>Immergiti in un viaggio indimenticabile attraverso la **cultura raffinata**, i **paesaggi mozzafiato** e le **delizie culinarie** di una delle nazioni più affascinanti d'Europa.</p>
+        <a href="#explore-france" class="hero-button">Inizia la Tua Esplorazione Francese</a>
     </header>
 
     <main>
         <section id="explore-france">
-            <h2>Benvenuti in Francia</h2>
-            <p>La Francia, un paese che evoca immagini di romanticismo, alta moda, arte raffinata e cucina sublime. Con la sua incredibile diversità geografica e culturale, offre un'esperienza di viaggio per ogni gusto.</p>
-            <p>Esplora le cime innevate delle Alpi, le lavande della Provenza, le spiagge dorate della Costa Azzurra, i castelli della Loira o le vibranti strade di Parigi. Ogni regione racconta una storia unica, pronta per essere scoperta.</p>
+            <h2>Benvenuti in Francia: Un Mosaico di Bellezza</h2>
+            <p>La Francia non è solo un paese, è un'esperienza sensoriale completa che evoca immagini di **romanticismo**, **alta moda**, **arte raffinata** e **cucina sublime**. Con la sua incredibile diversità geografica e culturale, offre un'avventura unica per ogni tipo di viaggiatore.</p>
+            <p>Dalle scintillanti **luci di Parigi** ai profumati **campi di lavanda** della Provenza, dalle aspre vette delle Alpi alle dorate spiagge della Costa Azzurra, dai fiabeschi **castelli della Loira** alle storiche spiagge della Normandia. Ogni regione racconta una storia unica, tessuta tra arte millenaria e vibrante modernità, pronta per essere scoperta con ogni passo.</p>
         </section>
 
         ---
 
         <section id="highlights">
-            <h2>Attrazioni Imperdibili</h2>
+            <h2>Attrazioni e Destinazioni Imperdibili</h2>
+            <p>Lasciati ispirare da alcune delle gemme più scintillanti che la Francia ha da offrire:</p>
             <div class="attraction-grid">
                 <div class="attraction-card">
-                    <img src="https://images.unsplash.com/photo-1549144503-34e87000d235?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Torre Eiffel, Parigi">
+                    <img src="https://images.unsplash.com/photo-1549144503-34e87000d235?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Torre Eiffel al tramonto, Parigi">
                     <div class="attraction-content">
-                        <h3>Parigi: La Città dell'Amore</h3>
-                        <p>Visita la Torre Eiffel, il Louvre, Notre-Dame e passeggia lungo la Senna. Vivi la magia della capitale francese.</p>
-                        <a href="#">Scopri Parigi</a>
+                        <h3>Parigi: La Ville Lumière</h3>
+                        <p>Immergiti nell'eleganza di **Parigi**, dalla maestosa **Torre Eiffel** ai capolavori del **Louvre**, dalle guglie gotiche di **Notre-Dame** alle romantiche passeggiate lungo la Senna. Vivi la magia unica della capitale francese, culla di arte, moda e storia.</p>
+                        <a href="#">Esplora Parigi</a>
                     </div>
                 </div>
 
                 <div class="attraction-card">
-                    <img src="https://images.unsplash.com/photo-1620959926615-51921f649204?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Campi di Lavanda, Provenza">
+                    <img src="https://images.unsplash.com/photo-1620959926615-51921f649204?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Campi di lavanda in Provenza al tramonto">
                     <div class="attraction-content">
-                        <h3>Provenza: Colori e Profumi</h3>
-                        <p>Campi di lavanda, villaggi pittoreschi, mercati provenzali e la cucina mediterranea del sud della Francia.</p>
-                        <a href="#">Esplora la Provenza</a>
+                        <h3>Provenza: Un Mosaico di Colori e Profumi</h3>
+                        <p>Lasciati sedurre dai **campi di lavanda** che si estendono all'infinito, dai **villaggi pittoreschi** arroccati sulle colline e dai vivaci **mercati provenzali**. Un viaggio in Provenza è un'esperienza sensoriale, arricchita dalla deliziosa cucina mediterranea.</p>
+                        <a href="#">Scopri la Provenza</a>
                     </div>
                 </div>
 
                 <div class="attraction-card">
-                    <img src="https://images.unsplash.com/photo-1620025983808-16e780447382?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Castello della Loira">
+                    <img src="https://images.unsplash.com/photo-1594917637841-a1bf181a4e10?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Château de Chenonceau, Valle della Loira">
                     <div class="attraction-content">
-                        <h3>Valle della Loira: Castelli Fiabeschi</h3>
-                        <p>Ammira i magnifici castelli rinascimentali come Chambord, Chenonceau e Azay-le-Rideau, patrimonio UNESCO.</p>
-                        <a href="#">Visita i Castelli</a>
+                        <h3>Valle della Loira: Fiabe tra Castelli e Vini</h3>
+                        <p>Percorri la **Valle della Loira**, un patrimonio UNESCO, e ammira i magnifici **castelli rinascimentali** che sorgono maestosi, come il sontuoso Chambord, l'elegante Chenonceau e il romantico Azay-le-Rideau. Un viaggio nel cuore della storia e della nobiltà francese.</p>
+                        <a href="#">Visita i Castelli della Loira</a>
                     </div>
                 </div>
 
                 <div class="attraction-card">
-                    <img src="https://images.unsplash.com/photo-1601614749341-a67b45f44b20?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Bordeaux vigneti">
+                    <img src="https://images.unsplash.com/photo-1595188804646-f5ff38612140?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Vigneti di Bordeaux al tramonto">
                     <div class="attraction-content">
-                        <h3>Bordeaux e i Vigneti: Il Paradiso del Vino</h3>
-                        <p>Degusta vini pregiati nelle famose cantine di Bordeaux e scopri le tradizioni vinicole della regione.</p>
-                        <a href="#">Degusta Vini</a>
+                        <h3>Bordeaux e i Vigneti: Il Paradiso dell'Enologia</h3>
+                        <p>Per gli amanti del vino, la regione di **Bordeaux** è una tappa obbligata. Degusta **vini pregiati** direttamente nelle famose cantine, esplora i vasti vigneti e scopri le secolari tradizioni vinicole che rendono la Francia celebre in tutto il mondo.</p>
+                        <a href="#">Degusta i Vini di Bordeaux</a>
                     </div>
                 </div>
             </div>
@@ -451,24 +478,24 @@
         ---
 
         <section id="cuisine">
-            <h2>Delizie Gastronomiche Francesi</h2>
-            <p>La cucina francese è rinomata in tutto il mondo per la sua raffinatezza e varietà. Ogni regione offre specialità uniche:</p>
+            <h2>Un Viaggio Culinario: Le Delizie Gastronomiche Francesi</h2>
+            <p>La **cucina francese** è una delle più celebrate al mondo, un'arte che coniuga sapori raffinati, tecniche sofisticate e ingredienti di altissima qualità. Ogni regione offre un tesoro di specialità uniche, pronte a deliziarti:</p>
             <ul>
-                <li><strong>Parigi:</strong> Croissant, macarons, ostriche e il celebre *Coq au Vin*.</li>
-                <li><strong>Provenza:</strong> *Ratatouille*, *Bouillabaisse* (zuppa di pesce), formaggi di capra e olio d'oliva.</li>
-                <li><strong>Bretagna:</strong> Crêpes, galette e sidro di mele.</li>
-                <li><strong>Bordeaux:</strong> Vini rossi, *foie gras* e carne di bue.</li>
-                <li><strong>Alsazia:</strong> *Choucroute* (cavolo acido con salsicce) e vini bianchi.</li>
+                <li><strong>Parigi:</strong> Inizia la giornata con un fragrante **croissant** o un pain au chocolat, concediti un lussuoso **macaron**, e a cena assaggia classici come il **Coq au Vin** o le tradizionali ostriche.</li>
+                <li><strong>Provenza:</strong> Gusta la colorata **Ratatouille**, la ricca zuppa di pesce **Bouillabaisse**, i saporiti formaggi di capra e l'olio d'oliva profumato.</li>
+                <li><strong>Bretagna:</strong> Lasciati tentare dalle celebri **crêpes** dolci e dalle saporite **galette** salate, accompagnate da un buon sidro di mele locale.</li>
+                <li><strong>Bordeaux:</strong> Accompagna i tuoi **vini rossi pregiati** con deliziosi piatti a base di **foie gras** e la rinomata carne di bue della regione.</li>
+                <li><strong>Alsazia:</strong> Scopri i sapori robusti della **Choucroute** (cavolo acido fermentato con salsicce e carne di maiale) e i rinfrescanti vini bianchi.</li>
             </ul>
-            <p>Un viaggio in Francia è anche un'esplorazione culinaria che delizierà ogni palato.</p>
+            <p>Un viaggio in Francia è anche un'esplorazione culinaria che promette di deliziare ogni palato, trasformando ogni pasto in un'esperienza memorabile.</p>
         </section>
 
         ---
 
         <section id="plan-your-trip">
-            <h2>Pianifica il Tuo Viaggio in Francia</h2>
-            <p>Siamo qui per aiutarti a creare l'itinerario perfetto, che tu sogni una fuga romantica a Parigi, un tour enogastronomico o un'avventura culturale.</p>
-            <p>Contattaci per una consulenza personalizzata e inizia a sognare la tua avventura francese!</p>
+            <h2>Pianifica il Tuo Viaggio da Sogno in Francia</h2>
+            <p>Che tu stia sognando una **fuga romantica a Parigi**, un **tour enogastronomico** tra i vigneti, un'avventura culturale alla scoperta dei castelli, o semplicemente un momento di relax sulle spiagge assolate, il nostro team di esperti è qui per aiutarti a creare l'itinerario perfetto, personalizzato sui tuoi desideri.</p>
+            <p>Non aspettare! **Contattaci oggi stesso** per una consulenza personalizzata e inizia a trasformare il tuo sogno di un viaggio in Francia in una splendida realtà!</p>
             <div style="text-align: center; margin-top: 30px;">
                 <a href="/contact" class="hero-button">Contattaci per la Francia</a>
             </div>
@@ -480,7 +507,7 @@
     </footer>
 
     <script>
-        // Navbar toggle functionality (copied from your existing JS)
+        // Navbar toggle functionality
         document.addEventListener('DOMContentLoaded', function() {
             const toggler = document.querySelector('.navbar-toggler');
             const collapse = document.querySelector('.navbar-collapse');

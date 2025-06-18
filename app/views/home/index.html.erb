@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Viaggio Nel Sud Europa - Home</title>
+    <title>Viaggio Nel Sud Europa - Esplora e Prenota</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         :root {
             --primary-dark-blue: #1A2E4E;
@@ -14,6 +15,7 @@
             --text-dark: #333;
             --grey-background: #EAEFF4;
             --border-color: #4A6C9B;
+            --button-hover-light: #82ccdd; /* Slightly lighter shade for button hover */
         }
 
         body {
@@ -22,6 +24,18 @@
             background-color: var(--grey-background);
             color: var(--text-dark);
             line-height: 1.6;
+            scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+        }
+
+        /* Utility Classes */
+        .text-center {
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
         /* Navbar Styling */
@@ -33,6 +47,8 @@
             justify-content: space-between;
             align-items: center;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1000;
         }
 
         .navbar-brand a {
@@ -80,23 +96,25 @@
             transition: width 0.3s ease-out;
         }
 
-        .navbar-nav a:hover {
-            color: var(--text-light);
-        }
-
-        .navbar-nav a:hover::after {
+        .navbar-nav a:hover::after,
+        .navbar-nav a.active::after {
             width: 100%;
         }
 
+        .navbar-nav a:hover,
+        .navbar-nav a.active {
+            color: var(--text-light);
+        }
+
         .navbar-toggler {
-            display: none; /* Hidden by default, shown via media query */
+            display: none;
             background: none;
             border: none;
             color: var(--accent-light-blue);
             font-size: 28px;
             cursor: pointer;
             padding: 5px;
-            z-index: 1000; /* Ensure it's above other content */
+            z-index: 1001;
         }
 
         .navbar-toggler .icon-bar {
@@ -133,6 +151,10 @@
             text-align: center;
             padding: 100px 20px;
             position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 500px; /* Ensure a decent height */
         }
 
         .hero-section h1 {
@@ -140,7 +162,7 @@
             font-size: 4em;
             margin-bottom: 20px;
             font-weight: 700;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
         }
 
         .hero-section p {
@@ -148,6 +170,7 @@
             max-width: 800px;
             margin: 0 auto 40px auto;
             font-weight: 300;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
         }
 
         .hero-button {
@@ -164,15 +187,14 @@
         }
 
         .hero-button:hover {
-            background-color: #82ccdd; /* A slightly lighter shade */
-            transform: translateY(-2px);
+            background-color: var(--button-hover-light);
+            transform: translateY(-3px);
         }
 
         /* Main Content Styling */
         main {
-            max-width: 1200px;
             margin: 40px auto;
-            padding: 0 20px;
+            padding: 0;
             display: grid;
             gap: 40px;
         }
@@ -193,6 +215,7 @@
             border-bottom: 2px solid var(--accent-light-blue);
             padding-bottom: 10px;
             display: inline-block;
+            width: auto; /* Allow content to dictate width */
         }
 
         section p {
@@ -214,6 +237,7 @@
             font-size: 1.05em;
             display: flex;
             align-items: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* subtle shadow for list items */
         }
 
         section ul li strong {
@@ -222,9 +246,10 @@
         }
 
         section ul li::before {
-            content: "✓"; /* Checkmark icon */
+            content: "\f00c"; /* FontAwesome checkmark icon */
+            font-family: 'Font Awesome 6 Free'; /* Specify FontAwesome font family */
+            font-weight: 900; /* Use solid icon weight */
             color: var(--primary-dark-blue);
-            font-weight: bold;
             margin-right: 10px;
         }
 
@@ -239,7 +264,7 @@
 
         .portfolio-item:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
         }
 
         .portfolio-item h3 {
@@ -290,34 +315,34 @@
         .country-card {
             background-color: var(--grey-background);
             border-radius: 8px;
-            overflow: hidden; /* Ensures image corners are rounded */
+            overflow: hidden;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            text-decoration: none; /* Remove underline from card link */
-            color: inherit; /* Inherit text color */
+            text-decoration: none;
+            color: inherit;
             display: flex;
             flex-direction: column;
         }
 
         .country-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.18);
         }
 
         .country-card img {
             width: 100%;
             height: 200px;
-            object-fit: cover; /* Ensures image covers the area nicely */
+            object-fit: cover;
             transition: transform 0.3s ease;
         }
 
         .country-card:hover img {
-            transform: scale(1.05); /* Slight zoom on image hover */
+            transform: scale(1.05);
         }
 
         .country-card-content {
             padding: 20px;
-            flex-grow: 1; /* Allows content to take available space */
+            flex-grow: 1;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -335,7 +360,7 @@
             font-size: 0.95em;
             color: var(--text-dark);
             margin-bottom: 15px;
-            flex-grow: 1; /* Allow paragraph to take space */
+            flex-grow: 1;
         }
 
         .country-card .learn-more {
@@ -352,7 +377,22 @@
             color: var(--primary-dark-blue);
         }
 
-        /* Media Queries */
+        /* Footer Styling */
+        footer {
+            background-color: var(--primary-dark-blue);
+            color: var(--text-light);
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.95em;
+        }
+
+        /* --- Media Queries --- */
         @media (max-width: 992px) {
             .navbar {
                 flex-wrap: wrap;
@@ -364,22 +404,22 @@
             }
 
             .navbar-toggler {
-                display: block; /* Show hamburger icon on smaller screens */
+                display: block;
             }
 
             .navbar-collapse {
                 width: 100%;
-                max-height: 0; /* Hidden by default */
+                max-height: 0;
                 overflow: hidden;
-                transition: max-height 0.4s ease-out; /* Smooth transition */
-                background-color: var(--primary-dark-blue); /* Ensure consistent background */
-                text-align: center; /* Center menu items on mobile */
+                transition: max-height 0.4s ease-out, padding 0.4s ease-out; /* Added padding transition */
+                background-color: var(--primary-dark-blue);
+                text-align: center;
                 padding: 0; /* Reset padding for collapse */
             }
 
             .navbar-collapse.show {
-                max-height: 300px; /* Adjust as needed to show all links */
-                padding: 10px 0; /* Add padding when open */
+                max-height: 500px; /* Adjust as needed */
+                padding: 10px 0; /* Add padding when shown */
             }
 
             .navbar-nav {
@@ -394,11 +434,16 @@
             .navbar-nav a {
                 font-size: 18px;
                 padding: 10px 0;
-                display: block; /* Make links take full width for easier tapping */
+                display: block;
             }
 
             .navbar-nav a::after {
-                display: none; /* Hide hover underline on mobile */
+                display: none;
+            }
+
+            .hero-section {
+                padding: 80px 20px;
+                min-height: 400px;
             }
 
             .hero-section h1 {
@@ -418,11 +463,16 @@
             }
 
             .country-cards-grid {
-                grid-template-columns: 1fr; /* Stack cards on very small screens */
+                grid-template-columns: 1fr;
             }
         }
 
         @media (max-width: 576px) {
+            .hero-section {
+                padding: 60px 15px;
+                min-height: 350px;
+            }
+
             .hero-section h1 {
                 font-size: 2.5em;
             }
@@ -434,6 +484,22 @@
             .navbar-brand a {
                 font-size: 24px;
             }
+
+            .navbar {
+                padding: 10px 15px;
+            }
+
+            section {
+                padding: 25px 15px;
+            }
+
+            section h2 {
+                font-size: 1.6em;
+            }
+            .hero-button {
+                padding: 12px 25px;
+                font-size: 1em;
+            }
         }
     </style>
 </head>
@@ -443,153 +509,202 @@
         <div class="navbar-brand">
             <a href="/">Viaggio Nel Sud Europa</a>
         </div>
-        <button class="navbar-toggler" aria-label="Toggle navigation">
+        <button class="navbar-toggler" aria-label="Toggle navigation" aria-controls="navbarCollapse">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <div class="navbar-collapse">
+        <div class="navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav">
-                <li><a href="/home">Home</a></li>
-                <li><a href="/about">Chi Siamo</a></li>
-                <li><a href="/contact">Contatti</a></li>
-                <li><a href="/spagnia">Spagna</a></li>
-                <li><a href="/francia">Francia</a></li>
-                <li><a href="/germania">Germania</a></li>
-                <li><a href="/albania">Albania</a></li>
-                <li><a href="/grecia">Grecia</a></li>
+                <li><a href="/home" class="nav-link" data-path="/home">Home</a></li>
+                <li><a href="/about" class="nav-link" data-path="/about">Chi Siamo</a></li>
+                <li><a href="/contact" class="nav-link" data-path="/contact">Contatti</a></li>
+                <li><a href="/spagnia" class="nav-link" data-path="/spagnia">Spagna</a></li>
+                <li><a href="/francia" class="nav-link" data-path="/francia">Francia</a></li>
+                <li><a href="/germania" class="nav-link" data-path="/germania">Germania</a></li>
+                <li><a href="/albania" class="nav-link" data-path="/albania">Albania</a></li>
+                <li><a href="/grecia" class="nav-link" data-path="/grecia">Grecia</a></li>
             </ul>
         </div>
     </nav>
 
     <header class="hero-section">
-        <h1>Scopri le Meraviglie del Sud Europa</h1>
-        <p>Il tuo partner ideale per esplorare le gemme nascoste e le destinazioni iconiche di Spagna, Francia, Germania, Albania e Grecia</p>
-        <a href="#destinations" class="hero-button">Esplora le Destinazioni</a>
+        <div class="container">
+            <h1>Scopri le Meraviglie del Sud Europa</h1>
+            <p>Il tuo partner ideale per esplorare le gemme nascoste e le destinazioni iconiche di Spagna, Francia, Germania, Albania e Grecia.</p>
+            <a href="#destinations" class="hero-button">Inizia la Tua Avventura! <i class="fas fa-chevron-right"></i></a>
+        </div>
     </header>
 
-    <main>
+    <main class="container">
         <section id="introduzione">
-            <h2>Benvenuti!</h2>
+            <h2 class="text-center">Benvenuti in un Mondo di Scoperte!</h2>
             <p>Siamo entusiasti di accompagnarti in un'avventura indimenticabile attraverso i paesaggi mozzafiato, le culture ricche e le tradizioni millenarie del **Sud Europa**. La nostra missione è offrirti esperienze di viaggio uniche e personalizzate, curando ogni dettaglio per rendere la tua esplorazione priva di pensieri.</p>
             <p>Che tu sia alla ricerca di storia antica, spiagge incontaminate, delizie culinarie o vibranti città, "Viaggio Nel Sud Europa" è qui per trasformare i tuoi sogni in realtà. Inizia a pianificare la tua prossima fuga con noi!</p>
         </section>
 
         <section id="destinations">
-            <h2>Le Nostre Destinazioni</h2>
-            <p>Seleziona un paese per scoprire le sue attrazioni, gli itinerari consigliati e le esperienze uniche che ti aspettano.</p>
+            <h2 class="text-center">Le Nostre Destinazioni Più Amate</h2>
+            <p class="text-center">Seleziona un paese per scoprire le sue attrazioni, gli itinerari consigliati e le esperienze uniche che ti aspettano.</p>
             <div class="country-cards-grid">
                 <a href="/spagnia" class="country-card">
-                    <img src="https://italflag.it/wp-content/uploads/2021/11/Bandiera-Spagna.jpg" alt="Paesaggio della Spagna">
+                    <img src="https://italflag.it/wp-content/uploads/2021/11/Bandiera-Spagna.jpg" alt="Bandiera e paesaggio della Spagna">
                     <div class="country-card-content">
-                        <h3>Spagna</h3>
-                        <p>Dalle vivaci città di Barcellona e Madrid alle spiagge assolate e alla ricca storia moresca dell'Andalusia.</p>
-                        <span class="learn-more">Scopri di più</span>
+                        <h3>Spagna <i class="fas fa-flag"></i></h3>
+                        <p>Dalle vivaci città di Barcellona e Madrid alle spiagge assolate e alla ricca storia moresca dell'Andalusia. Un mix perfetto di cultura, festa e relax.</p>
+                        <span class="learn-more">Scopri di più <i class="fas fa-arrow-right"></i></span>
                     </div>
                 </a>
                 <a href="/francia" class="country-card">
-                    <img src="https://italflag.it/wp-content/uploads/2021/11/bandiera-Francia.jpg" alt="Paesaggio della Francia">
+                    <img src="https://italflag.it/wp-content/uploads/2021/11/bandiera-Francia.jpg" alt="Bandiera e paesaggio della Francia">
                     <div class="country-card-content">
-                        <h3>Francia</h3>
-                        <p>Eleganza parigina, vigneti della Borgogna, la magia della Costa Azzurra e i castelli della Loira.</p>
-                        <span class="learn-more">Scopri di più</span>
+                        <h3>Francia <i class="fas fa-flag"></i></h3>
+                        <p>Eleganza parigina, vigneti della Borgogna, la magia della Costa Azzurra e i castelli della Loira. Un viaggio nel cuore della bellezza e dell'arte.</p>
+                        <span class="learn-more">Scopri di più <i class="fas fa-arrow-right"></i></span>
                     </div>
                 </a>
                 <a href="/germania" class="country-card">
-                    <img src="https://resource02.ulifestyle.com.hk/ulcms/content/article/thumbnail/1280x720/ez/2025000/2028654/20180312_germany_03s.jpg" alt="Paesaggio della Germania">
+                    <img src="https://resource02.ulifestyle.com.hk/ulcms/content/article/thumbnail/1280x720/ez/2025000/2028654/20180312_germany_03s.jpg" alt="Bandiera e paesaggio della Germania">
                     <div class="country-card-content">
-                        <h3>Germania</h3>
-                        <p>Castelli fiabeschi, città vibranti come Berlino e Monaco, e l'incanto della Foresta Nera.</p>
-                        <span class="learn-more">Scopri di più</span>
+                        <h3>Germania <i class="fas fa-flag"></i></h3>
+                        <p>Castelli fiabeschi, città vibranti come Berlino e Monaco, e l'incanto della Foresta Nera. Storia, innovazione e natura si incontrano.</p>
+                        <span class="learn-more">Scopri di più <i class="fas fa-arrow-right"></i></span>
                     </div>
                 </a>
                 <a href="/albania" class="country-card">
-                    <img src="https://www.bandiere.it/uploads/2021-5-3/420-272/albania%281%29.png" alt="Paesaggio dell'Albania">
+                    <img src="https://www.bandiere.it/uploads/2021-5-3/420-272/albania%281%29.png" alt="Bandiera e paesaggio dell'Albania">
                     <div class="country-card-content">
-                        <h3>Albania</h3>
-                        <p>Tesori nascosti del Mediterraneo, spiagge incontaminate, antiche rovine e montagne maestose.</p>
-                        <span class="learn-more">Scopri di più</span>
+                        <h3>Albania <i class="fas fa-flag"></i></h3>
+                        <p>Tesori nascosti del Mediterraneo, spiagge incontaminate, antiche rovine e montagne maestose. Una gemma autentica ancora da scoprire.</p>
+                        <span class="learn-more">Scopri di più <i class="fas fa-arrow-right"></i></span>
                     </div>
                 </a>
                 <a href="/grecia" class="country-card">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_Greece.svg" alt="Paesaggio della Grecia">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_Greece.svg" alt="Bandiera e paesaggio della Grecia">
                     <div class="country-card-content">
-                        <h3>Grecia</h3>
-                        <p>Miti e leggende, isole idilliache, siti archeologici millenari e l'ospitalità ellenica.</p>
-                        <span class="learn-more">Scopri di più</span>
+                        <h3>Grecia <i class="fas fa-flag"></i></h3>
+                        <p>Miti e leggende, isole idilliache, siti archeologici millenari e l'ospitalità ellenica. Un viaggio tra storia, sole e mare cristallino.</p>
+                        <span class="learn-more">Scopri di più <i class="fas fa-arrow-right"></i></span>
                     </div>
                 </a>
             </div>
         </section>
 
-        <section id="chi-siamo">
-            <h2>Chi Siamo</h2>
-            <p>Siamo un team di **esperti viaggiatori e appassionati di cultura**, dedicati a creare itinerari su misura che vanno oltre le guide turistiche tradizionali. La nostra profonda conoscenza del Sud Europa ci permette di scovare le perle nascoste e di proporti esperienze autentiche, lontane dai percorsi turistici più battuti.</p>
-            <p>La nostra filosofia si basa sulla cura del cliente, sulla sostenibilità e sull'amore per il nostro territorio. Siamo qui per ascoltare le tue esigenze e per costruire insieme a te il viaggio dei tuoi sogni.</p>
-        </section>
-
-        <section id="servizi">
-            <h2>I Nostri Servizi Esclusivi</h2>
+        <section id="why-us">
+            <h2 class="text-center">Perché Scegliere Viaggio Nel Sud Europa?</h2>
+            <p class="text-center">Siamo più di un'agenzia di viaggi; siamo artigiani di esperienze indimenticabili. Ecco cosa ci rende unici:</p>
             <ul>
-                <li>**Pianificazione Itinerari Personalizzati:** Creiamo percorsi di viaggio unici, basati sui tuoi interessi, budget e tempi.</li>
-                <li>**Guide Locali Esperti:** Ti mettiamo in contatto con le migliori guide del posto per un'immersione autentica nella cultura locale.</li>
-                <li>**Alloggi Selezionati:** Dalle boutique hotel storici alle ville con vista mozzafiato, scegliamo solo il meglio per il tuo soggiorno.</li>
-                <li>**Esperienze Gastronomiche:** Organizziamo tour enogastronomici, lezioni di cucina e degustazioni per deliziare il tuo palato.</li>
-                <li>**Supporto H24:** Il nostro team è sempre a tua disposizione per qualsiasi necessità durante il tuo viaggio.</li>
+                <li><strong>Esperienza e Passione:</strong> Un team di esperti viaggiatori con una profonda conoscenza del Sud Europa.</li>
+                <li><strong>Itinerari su Misura:</strong> Ogni viaggio è progettato intorno a te, i tuoi interessi e il tuo budget.</li>
+                <li><strong>Supporto Costante:</strong> Assistenza 24/7 prima, durante e dopo il tuo viaggio.</li>
+                <li><strong>Autenticità:</strong> Ti portiamo a scoprire le vere gemme, lontane dai circuiti turistici di massa.</li>
+                <li><strong>Qualità Selezionata:</strong> Solo i migliori alloggi, guide locali e esperienze gastronomiche.</li>
             </ul>
         </section>
 
         <section id="portfolio">
-            <h2>Le Nostre Storie di Viaggio</h2>
-            <p>Scopri alcune delle indimenticabili avventure che abbiamo aiutato a realizzare. Ogni progetto è una testimonianza del nostro impegno e della passione per il viaggio.</p>
+            <h2 class="text-center">Le Nostre Storie di Viaggio</h2>
+            <p class="text-center">Scopri alcune delle indimenticabili avventure che abbiamo aiutato a realizzare. Ogni progetto è una testimonianza del nostro impegno e della passione per il viaggio.</p>
             <div class="portfolio-item">
-                <h3>Esplorando l'Andalusia Moresca</h3>
-                <p>Un viaggio di sette giorni tra Siviglia, Granada e Cordoba, alla scoperta dell'eredità araba in Spagna, con visite esclusive all'Alhambra e lezioni di flamenco. <a href="#">Scopri l'itinerario</a></p>
+                <h3>Esplorando l'Andalusia Moresca <i class="fas fa-map-marker-alt"></i></h3>
+                <p>Un viaggio di sette giorni tra Siviglia, Granada e Cordoba, alla scoperta dell'eredità araba in Spagna, con visite esclusive all'Alhambra e lezioni di flamenco. Un'immersione totale nella cultura andalusa.</p>
+                <a href="#">Scopri l'itinerario <i class="fas fa-external-link-alt"></i></a>
             </div>
             <div class="portfolio-item">
-                <h3>Un Tuffo nella Storia Romana a Roma</h3>
-                <p>Cinque giorni dedicati alla capitale italiana, esplorando il Colosseo, i Fori Imperiali e la Città del Vaticano, con focus sulla gastronomia locale e tour serali. <a href="#">Dettagli del viaggio</a></p>
+                <h3>Un Tuffo nella Storia Romana a Roma <i class="fas fa-city"></i></h3>
+                <p>Cinque giorni dedicati alla capitale italiana, esplorando il Colosseo, i Fori Imperiali e la Città del Vaticano, con focus sulla gastronomia locale e tour serali. Un'esperienza che unisce storia e sapori.</p>
+                <a href="#">Dettagli del viaggio <i class="fas fa-external-link-alt"></i></a>
             </div>
             <div class="portfolio-item">
-                <h3>Le Isole Greche: Tra Mito e Mare</h3>
-                <p>Una crociera di lusso tra Santorini, Mykonos e Creta, con giornate dedicate al relax in spiagge paradisiache e serate nelle pittoresche taverne locali. <a href="#">Vivi l'esperienza greca</a></p>
+                <h3>Le Isole Greche: Tra Mito e Mare <i class="fas fa-ship"></i></h3>
+                <p>Una crociera di lusso tra Santorini, Mykonos e Creta, con giornate dedicate al relax in spiagge paradisiache e serate nelle pittoresche taverne locali. Vivi il sogno ellenico tra blu e bianco.</p>
+                <a href="#">Vivi l'esperienza greca <i class="fas fa-external-link-alt"></i></a>
             </div>
         </section>
 
         <section id="contatti">
-            <h2>Contattaci</h2>
-            <p>Se desideri pianificare il tuo prossimo viaggio nel Sud Europa o hai domande sui nostri servizi, non esitare a contattarci. Siamo qui per ascoltarti e trasformare i tuoi sogni in realtà.</p>
-            <address>
-                **Email:** <a href="mailto:info@viaggionelsudeuropa.com">info@viaggionelsudeuropa.com</a><br>
-                **Telefono:** <a href="tel:+391234567890">+39 123 4567890</a><br>
-                **Indirizzo:** Via dei Viaggi 10, 00100 Roma, Italia
+            <h2 class="text-center">Pronto a Partire? Contattaci!</h2>
+            <p class="text-center">Se desideri pianificare il tuo prossimo viaggio nel Sud Europa o hai domande sui nostri servizi, non esitare a contattarci. Siamo qui per ascoltarti e trasformare i tuoi sogni in realtà.</p>
+            <address class="text-center">
+                <p><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:info@viaggionelsudeuropa.com">info@viaggionelsudeuropa.com</a></p>
+                <p><i class="fas fa-phone"></i> <strong>Telefono:</strong> <a href="tel:+391234567890">+39 123 4567890</a></p>
+                <p><i class="fas fa-map-marker-alt"></i> <strong>Indirizzo:</strong> Via dei Viaggi 10, 00100 Roma, Italia</p>
             </address>
+            <p class="text-center" style="margin-top: 30px;">Inviaci un messaggio e ti risponderemo al più presto!</p>
+            <div class="text-center">
+                <a href="/contact" class="hero-button">Richiedi un Preventivo <i class="fas fa-paper-plane"></i></a>
+            </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 Viaggio Nel Sud Europa. Tutti i diritti riservati.</p>
+        <div class="container">
+            <p>&copy; 2025 Viaggio Nel Sud Europa. Tutti i diritti riservati.</p>
+            <p>Seguici su:
+                <a href="#" style="color: var(--text-light); margin: 0 5px;"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" style="color: var(--text-light); margin: 0 5px;"><i class="fab fa-instagram"></i></a>
+                <a href="#" style="color: var(--text-light); margin: 0 5px;"><i class="fab fa-twitter"></i></a>
+            </p>
+        </div>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const toggler = document.querySelector('.navbar-toggler');
             const collapse = document.querySelector('.navbar-collapse');
+            const navLinks = document.querySelectorAll('.nav-link');
 
-            toggler.addEventListener('click', function() {
-                collapse.classList.toggle('show');
-                toggler.classList.toggle('open');
-            });
-
-            // Close the menu when a nav link is clicked (for mobile)
-            const navLinks = document.querySelectorAll('.navbar-nav a');
-            navLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    if (window.innerWidth <= 992) { // Only close if on mobile
-                        collapse.classList.remove('show');
-                        toggler.classList.remove('open');
-                    }
+            // Toggle logic for hamburger menu
+            if (toggler && collapse) {
+                toggler.addEventListener('click', function() {
+                    collapse.classList.toggle('show');
+                    toggler.classList.toggle('open');
+                    const isExpanded = collapse.classList.contains('show');
+                    toggler.setAttribute('aria-expanded', isExpanded);
                 });
+
+                // Close menu when a navigation link is clicked (on mobile)
+                navLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        if (window.innerWidth <= 992 && collapse.classList.contains('show')) {
+                            collapse.classList.remove('show');
+                            toggler.classList.remove('open');
+                            toggler.setAttribute('aria-expanded', 'false');
+                        }
+                    });
+                });
+
+                // Handle window resize for responsiveness
+                let resizeTimeout;
+                window.addEventListener('resize', () => {
+                    clearTimeout(resizeTimeout);
+                    resizeTimeout = setTimeout(() => {
+                        if (window.innerWidth > 992 && collapse.classList.contains('show')) {
+                            collapse.classList.remove('show');
+                            toggler.classList.remove('open');
+                            toggler.setAttribute('aria-expanded', 'false');
+                        }
+                    }, 250);
+                });
+            } else {
+                console.error("Navbar toggler or collapse element not found. Check your HTML structure.");
+            }
+
+            // Active link highlighting based on current URL path
+            const currentPath = window.location.pathname;
+            navLinks.forEach(link => {
+                // Remove trailing slash from both for consistent comparison
+                const linkPath = link.getAttribute('data-path').replace(/\/$/, '');
+                const cleanedCurrentPath = currentPath.replace(/\/$/, '');
+
+                if (linkPath === cleanedCurrentPath ||
+                    (linkPath === '/home' && cleanedCurrentPath === '/') || // Special case for home page
+                    (linkPath === '/home' && cleanedCurrentPath === '/index.html')) // Handle index.html if applicable
+                {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
             });
         });
     </script>

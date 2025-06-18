@@ -1,5 +1,3 @@
-<%# app/views/pages/about.html.erb %>
-
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -28,7 +26,7 @@
             line-height: 1.6;
         }
 
-        /* Navbar Styling (copied from your previous CSS for self-contained example) */
+        /* Navbar Styling */
         .navbar {
             background-color: var(--primary-dark-blue);
             color: var(--text-light);
@@ -135,13 +133,13 @@
             background: linear-gradient(rgba(26, 46, 78, 0.7), rgba(26, 46, 78, 0.7)), url('https://images.unsplash.com/photo-1510414995971-8742407519ff?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
             color: var(--text-light);
             text-align: center;
-            padding: 80px 20px; /* Slightly less padding than home hero */
+            padding: 80px 20px;
             position: relative;
         }
 
         .hero-section h1 {
             font-family: 'Montserrat', sans-serif;
-            font-size: 3.5em; /* Slightly smaller for internal pages */
+            font-size: 3.5em;
             margin-bottom: 15px;
             font-weight: 700;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
@@ -184,6 +182,28 @@
         section p {
             margin-bottom: 15px;
             font-size: 1.1em;
+        }
+
+        section ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        section ul li {
+            background-color: var(--grey-background);
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 5px solid var(--accent-light-blue);
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        section ul li strong {
+            color: var(--primary-dark-blue);
+            font-size: 1.2em;
+            display: block;
+            margin-bottom: 5px;
         }
 
         .owner-info {
@@ -239,12 +259,39 @@
             font-size: 1.1em;
             transition: background-color 0.3s ease, transform 0.2s ease;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center; /* Ensures button text is centered if it wraps */
         }
 
         .hero-button:hover {
             background-color: #82ccdd; /* A slightly lighter shade */
             transform: translateY(-2px);
         }
+
+        .destination-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .destination-button {
+            background-color: var(--secondary-blue);
+            color: var(--text-light);
+            padding: 12px 25px;
+            font-size: 1em;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .destination-button:hover {
+            background-color: #3A5F90; /* Darker secondary blue */
+            transform: translateY(-2px);
+        }
+
 
         /* Footer Styling */
         footer {
@@ -257,7 +304,7 @@
             box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
         }
 
-        /* Media Query for smaller screens (copied from your previous CSS) */
+        /* Media Query for smaller screens */
         @media (max-width: 992px) {
             .navbar {
                 flex-wrap: wrap;
@@ -316,6 +363,14 @@
             .owner-info h3 {
                 font-size: 1.8em;
             }
+            .hero-button {
+                padding: 12px 25px;
+                font-size: 1em;
+            }
+            .destination-button {
+                padding: 10px 20px;
+                font-size: 0.9em;
+            }
         }
 
         @media (max-width: 576px) {
@@ -334,6 +389,12 @@
             }
             .owner-info h3 {
                 font-size: 1.5em;
+            }
+            section ul li {
+                padding: 15px;
+            }
+            section ul li strong {
+                font-size: 1.1em;
             }
         }
     </style>
@@ -364,45 +425,66 @@
     </nav>
 
     <header class="hero-section">
-        <h1>La Nostra Storia, La Tua Avventura</h1>
-        <p>Siamo il cuore pulsante dietro ogni viaggio indimenticabile nel Sud Europa.</p>
+        <h1>Il Tuo Viaggio da Sogno nel Sud Europa Inizia Qui.</h1>
+        <p>Trasformiamo la passione per il Mediterraneo in esperienze autentiche e indimenticabili, create su misura per te.</p>
+        <a href="/contact" class="hero-button">Crea il Tuo Itinerario</a>
     </header>
 
     <main>
         <section id="introduzione-about">
-            <h2>Chi Siamo</h2>
-            <p><strong>Viaggio Nel Sud Europa</strong> nasce dalla profonda passione per la scoperta e l'amore incondizionato per le terre baciate dal sole del Mediterraneo. Dal 2015, la nostra missione è trasformare i sogni in realtà, creando itinerari su misura che vanno ben oltre le guide tradizionali.</p>
-            <p>Crediamo che ogni viaggio debba essere un'immersione autentica, un'opportunità per connettersi con culture millenarie, paesaggi mozzafiato e sapori indimenticabili. La nostra missione è offrirti non solo una destinazione, ma un'esperienza che arricchisca l'anima e lasci ricordi indelebili.</p>
+            <h2>La Nostra Storia: Passione, Scoperta, Avventura</h2>
+            <p>Tutto è iniziato con una visione semplice ma potente: trasformare l'amore incondizionato per le terre baciate dal sole del Mediterraneo in **esperienze di viaggio autentiche e memorabili**. Dal 2015, **Viaggio Nel Sud Europa** è molto più di un'agenzia; siamo i tuoi compagni di avventura, dedicati a creare **itinerari su misura** che vanno ben oltre le guide tradizionali.</p>
+            <p>Crediamo che un viaggio debba essere un'autentica immersione: un'opportunità unica per connettersi con **culture millenarie**, ammirare **paesaggi mozzafiato** e assaporare **sapori indimenticabili**. La nostra promessa è offrirti non solo una destinazione, ma un'esperienza profonda che **arricchisca l'anima** e ti lasci con ricordi indelebili che porterai con te per sempre.</p>
         </section>
 
         <section id="filosofia">
-            <h2>La Nostra Filosofia</h2>
-            <p>Al centro di ogni nostra proposta c'è un impegno incrollabile verso:</p>
+            <h2>I Pilastri del Tuo Viaggio Perfetto: La Nostra Filosofia</h2>
+            <p>Al centro di ogni esperienza firmata **Viaggio Nel Sud Europa** c'è un impegno incrollabile verso i valori che rendono ogni avventura unica:</p>
             <ul>
-                <li><strong>Autenticità:</strong> Ti portiamo nei luoghi dove la vera anima del Sud Europa si rivela, lontano dalle folle.</li>
-                <li><strong>Personalizzazione:</strong> Ogni itinerario è cucito su misura per te, riflettendo i tuoi interessi e desideri.</li>
-                <li><strong>Sostenibilità:</strong> Promuoviamo un turismo responsabile che rispetti l'ambiente e le comunità locali.</li>
-                <li><strong>Eccellenza:</strong> Dagli alloggi alle guide, selezioniamo solo il meglio per garantirti un viaggio senza pensieri.</li>
-                <li><strong>Supporto Costante:</strong> Siamo al tuo fianco prima, durante e dopo la tua avventura, con assistenza dedicata.</li>
+                <li>
+                    <strong>Autenticità:</strong> Ti guidiamo oltre i percorsi turistici battuti, nei luoghi dove la vera anima del Sud Europa si rivela. Vogliamo che tu viva incontri genuini e scoperte inaspettate.
+                </li>
+                <li>
+                    <strong>Personalizzazione:</strong> Il tuo viaggio è un'opera d'arte creata solo per te. Ogni itinerario è cucito su misura, riflettendo i tuoi interessi, desideri e ritmo, perché la tua avventura sia davvero tua.
+                </li>
+                <li>
+                    <strong>Sostenibilità:</strong> Promuoviamo un turismo consapevole e responsabile. Rispettiamo l'ambiente e supportiamo le comunità locali, assicurando che le meraviglie che scopri oggi possano essere ammirate anche dalle generazioni future.
+                </li>
+                <li>
+                    <strong>Eccellenza:</strong> Dalla selezione meticolosa degli alloggi alle guide esperte, curiamo ogni dettaglio con la massima attenzione. Il nostro obiettivo è garantirti un viaggio impeccabile e senza pensieri, dove la qualità è sempre al primo posto.
+                </li>
+                <li>
+                    <strong>Supporto Costante:</strong> La nostra assistenza è al tuo fianco prima, durante e dopo la tua avventura. Siamo qui per ogni esigenza, garantendoti serenità e supporto dedicato in ogni fase del tuo viaggio.
+                </li>
             </ul>
         </section>
 
         <section id="il-fondatore">
-            <h2>Il Nostro Fondatore</h2>
+            <h2>Andrej Antonio Boso: La Passione dietro il Tuo Viaggio</h2>
             <div class="owner-info">
-                <%# Puoi sostituire questa URL con un'immagine di Andrej Antonio Bos salvata in app/assets/images/andrej_bos.jpg %>
-                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Foto di Andrej Antonio Bos">
+                <%# È FORTEMENTE RACCOMANDATO SOSTITUIRE QUESTA URL CON UNA VERA IMMAGINE DI Andrej Antonio Boso PER MASSIMA AUTENTICITÀ. %>
+                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Foto di Andrej Antonio Boso">
                 <h3>Andrej Antonio Boso</h3>
                 <p class="title">Proprietario & Fondatore</p>
-                <p>Andrej Antonio Boso ha creato Viaggio Nel Sud Europa con una visione chiara: offrire esperienze di viaggio uniche e personalizzate, basate su una profonda conoscenza del territorio e un rispetto autentico per le culture locali. La sua passione per l'esplorazione e l'attenzione ai dettagli sono il cuore pulsante di ogni avventura che proponiamo.</p>
-                <p>Con anni di esperienza nel settore e innumerevoli viaggi all'attivo, Andrej si impegna personalmente a garantire che ogni itinerario rifletta la qualità e l'autenticità che i nostri clienti meritano.</p>
+                <p>**Viaggio Nel Sud Europa** è nato dalla visione e dalla profonda passione di **Andrej Antonio Boso**. La sua idea era chiara: superare il turismo di massa per offrire esperienze di viaggio realmente uniche e profondamente personalizzate. Questo si basa sulla sua vasta conoscenza del territorio e su un autentico rispetto per le culture locali.</p>
+                <p>Andrej ricorda ancora vividamente il momento in cui, perso nelle stradine di un borgo pugliese, ha compreso la vera essenza del Sud Europa: la **connessione umana e la bellezza inattesa**. Quella scintilla ha trasformato anni di esperienza nel settore in un impegno personale. È questa passione contagiosa e la sua meticolosa **attenzione ai dettagli** che si trovano al cuore di ogni avventura che proponiamo. Andrej si impegna personalmente a garantire che ogni itinerario rifletta la qualità e l'autenticità che i nostri clienti meritano e cercano.</p>
             </div>
         </section>
 
-        <section id="contatti-about">
-            <h2>Inizia la Tua Avventura con Noi</h2>
-            <p>Siamo pronti ad ascoltare i tuoi desideri e a creare il viaggio perfetto per te. Contattaci oggi stesso per iniziare a pianificare la tua prossima esplorazione del Sud Europa!</p>
-            <p><a href="/contact" class="hero-button">Contattaci Ora</a></p>
+        <section id="esplora-e-contatta">
+            <h2>Pronto a Partire? Inizia la Tua Avventura con Noi!</h2>
+            <p>Sei pronto a trasformare il tuo sogno di viaggio in realtà? Siamo qui per ascoltare i tuoi desideri e creare l'itinerario perfetto, su misura per le tue aspettative.</p>
+            <p style="text-align: center; margin-top: 30px;">
+                <a href="/contact" class="hero-button">Parla con un Esperto di Viaggio</a>
+            </p>
+            <p style="text-align: center; margin-top: 20px; font-size: 1.1em;">Oppure, lasciati ispirare esplorando alcune delle nostre destinazioni preferite:</p>
+            <div class="destination-buttons">
+                <a href="/spagnia" class="destination-button">Viaggi in Spagna</a>
+                <a href="/grecia" class="destination-button">Scopri la Grecia</a>
+                <a href="/francia" class="destination-button">Avventura in Francia</a>
+                <a href="/albania" class="destination-button">Le Meraviglie dell'Albania</a>
+                <a href="/germania" class="destination-button">Cultura e Storia in Germania</a>
+                </div>
         </section>
     </main>
 
