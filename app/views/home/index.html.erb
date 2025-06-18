@@ -1,9 +1,13 @@
 <style>
+
+  body {
+    background-color: #0c2461; /* Colore di sfondo della pagina */
+  }
   /* app/assets/stylesheets/application.css o un file specifico come _navbar.scss */
 
 .navbar {
   background-color: #1e3799; /* Colore di sfondo della navbar */
-  color: white;
+  color: #82ccdd;
   padding: 10px 20px;
   display: flex; /* Utilizza Flexbox per l'allineamento */
   justify-content: space-between; /* Spazia gli elementi brand e menu */
@@ -11,7 +15,7 @@
 }
 
 .navbar-brand a {
-  color: white;
+  color: #82ccdd;
   text-decoration: none;
   font-size: 24px;
   font-weight: bold;
@@ -29,14 +33,14 @@
 }
 
 .navbar-nav a {
-  color: white;
+  color: #82ccdd;
   text-decoration: none;
   padding: 5px 0;
   transition: color 0.3s ease;
 }
 
 .navbar-nav a:hover {
-  color: #ddd;
+  color: white;
 }
 
 /* Nascondi il toggler di default su desktop */
@@ -44,7 +48,7 @@
   display: none;
   background: none;
   border: none;
-  color: white;
+  color: #82ccdd;
   font-size: 24px;
   cursor: pointer;
   padding: 5px;
@@ -54,7 +58,7 @@
   display: block;
   width: 25px;
   height: 3px;
-  background-color: white;
+  background-color: #82ccdd;
   margin: 5px 0;
   transition: all 0.3s ease-in-out;
 }
@@ -106,7 +110,6 @@
 }
 </style>
 
-
 <nav class="navbar">
   <div class="navbar-brand">
     <a>Viaggio Nel Sud Europa</a>
@@ -127,3 +130,86 @@
 
 <%= link_to 'spagnia', spagnia_path %>
 
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Mia Home Page</title>
+</head>
+<body>
+
+    <header>
+        <h1>Benvenuti sulla Mia Home Page!</h1>
+        <nav>
+            <ul>
+                <li><a href="#chi-siamo">Chi Siamo</a></li>
+                <li><a href="#servizi">Servizi</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contatti">Contatti</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="introduzione">
+            <h2>Ciao a tutti!</h2>
+            <p>Questa è la mia prima home page creata solo con HTML. Sono entusiasta di condividere con voi alcune informazioni su di me e sui miei progetti.</p>
+            <p>Qui troverete un'introduzione ai contenuti principali del sito.</p>
+        </section>
+
+        ---
+
+        <section id="chi-siamo">
+            <h2>Chi Siamo</h2>
+            <p>Siamo un team appassionato (o sono un individuo appassionato!) che si dedica a [breve descrizione di ciò che fai o di cosa tratta il sito].</p>
+            <p>La nostra missione è [la tua missione o l'obiettivo del sito].</p>
+        </section>
+
+        ---
+
+        <section id="servizi">
+            <h2>I Nostri Servizi</h2>
+            <ul>
+                <li><strong>Servizio 1:</strong> Descrizione breve del servizio 1.</li>
+                <li><strong>Servizio 2:</strong> Descrizione breve del servizio 2.</li>
+                <li><strong>Servizio 3:</strong> Descrizione breve del servizio 3.</li>
+            </ul>
+        </section>
+
+        ---
+
+        <section id="portfolio">
+            <h2>Il Nostro Portfolio</h2>
+            <p>Dai un'occhiata ad alcuni dei nostri lavori:</p>
+            <div>
+                <h3>Progetto A</h3>
+                <p>Breve descrizione del Progetto A. <a href="link-al-progetto-a.html">Vedi di più</a></p>
+                </div>
+            <div>
+                <h3>Progetto B</h3>
+                <p>Breve descrizione del Progetto B. <a href="link-al-progetto-b.html">Vedi di più</a></p>
+            </div>
+        </section>
+
+        ---
+
+        <section id="contatti">
+            <h2>Contattaci</h2>
+            <p>Per qualsiasi domanda o informazione, non esitare a contattarci!</p>
+            <address>
+                Email: <a href="mailto:tua.email@esempio.com">tua.email@esempio.com</a><br>
+                Telefono: +39 123 4567890<br>
+                Indirizzo: Via Roma 1, 00100 Città, Italia
+            </address>
+        </section>
+    </main>
+
+    ---
+
+    <footer>
+        <p>&copy; 2025 La Mia Home Page. Tutti i diritti riservati.</p>
+    </footer>
+
+</body>
+</html>
